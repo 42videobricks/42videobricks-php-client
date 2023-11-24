@@ -1,4 +1,4 @@
-# OpenAPI\Client\VideosApi
+# Api42Vb\Client\VideosApi
 
 All URIs are relative to https://api-sbx.42videobricks.com, except if the operation defines another base path.
 
@@ -16,6 +16,7 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**getAttachmentFileByVideoId()**](VideosApi.md#getAttachmentFileByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file |
 | [**getAttachmentsByVideoId()**](VideosApi.md#getAttachmentsByVideoId) | **GET** /videos/{videoId}/attachments | List of attachments |
 | [**getVideoById()**](VideosApi.md#getVideoById) | **GET** /videos/{videoId} | Retun a single video |
+| [**getVideoStatusById()**](VideosApi.md#getVideoStatusById) | **GET** /videos/{videoId}/status | Retun the detailed status of the video |
 | [**getVideos()**](VideosApi.md#getVideos) | **GET** /videos | List videos |
 | [**initMultipartUploadVideoById()**](VideosApi.md#initMultipartUploadVideoById) | **POST** /videos/{videoId}/multipart-upload/init | Multipart upload intialization |
 | [**initUploadVideoById()**](VideosApi.md#initUploadVideoById) | **GET** /videos/{videoId}/upload/init | Single file upload intialization |
@@ -30,7 +31,7 @@ addAttachmentByVideoId($video_id, $attachment_type, $locale, $file)
 
 Upload an attachement
 
-Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"cpation\" (close caption) - supported file types: SRT (text/plain), SCC (text/plain), TTML (application/ttml), VTT (text/vtt)
+Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)
 
 ### Example
 
@@ -40,12 +41,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -107,12 +108,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -155,7 +156,7 @@ void (empty response body)
 ## `addVideo()`
 
 ```php
-addVideo($video_properties): \OpenAPI\Client\Model\Video
+addVideo($video_properties): \Api42Vb\Client\Model\Video
 ```
 
 Add a new video
@@ -170,18 +171,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$video_properties = new \OpenAPI\Client\Model\VideoProperties(); // \OpenAPI\Client\Model\VideoProperties
+$video_properties = new \Api42Vb\Client\Model\VideoProperties(); // \Api42Vb\Client\Model\VideoProperties
 
 try {
     $result = $apiInstance->addVideo($video_properties);
@@ -195,11 +196,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **video_properties** | [**\OpenAPI\Client\Model\VideoProperties**](../Model/VideoProperties.md)|  | |
+| **video_properties** | [**\Api42Vb\Client\Model\VideoProperties**](../Model/VideoProperties.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Video**](../Model/Video.md)
+[**\Api42Vb\Client\Model\Video**](../Model/Video.md)
 
 ### Authorization
 
@@ -232,12 +233,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -295,12 +296,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -354,12 +355,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -415,19 +416,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $video_id = {{videoId}}; // string | Id of the video
-$video_multipart_upload_finalize = new \OpenAPI\Client\Model\VideoMultipartUploadFinalize(); // \OpenAPI\Client\Model\VideoMultipartUploadFinalize
+$video_multipart_upload_finalize = new \Api42Vb\Client\Model\VideoMultipartUploadFinalize(); // \Api42Vb\Client\Model\VideoMultipartUploadFinalize
 
 try {
     $apiInstance->finalizeMultipartUploadVideoById($video_id, $video_multipart_upload_finalize);
@@ -441,7 +442,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **video_id** | **string**| Id of the video | |
-| **video_multipart_upload_finalize** | [**\OpenAPI\Client\Model\VideoMultipartUploadFinalize**](../Model/VideoMultipartUploadFinalize.md)|  | [optional] |
+| **video_multipart_upload_finalize** | [**\Api42Vb\Client\Model\VideoMultipartUploadFinalize**](../Model/VideoMultipartUploadFinalize.md)|  | [optional] |
 
 ### Return type
 
@@ -478,12 +479,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -539,12 +540,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -604,12 +605,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -654,7 +655,7 @@ void (empty response body)
 ## `getAttachmentsByVideoId()`
 
 ```php
-getAttachmentsByVideoId($video_id, $attachment_type, $locale, $limit, $offset): \OpenAPI\Client\Model\VideoAttachmentList
+getAttachmentsByVideoId($video_id, $attachment_type, $locale, $limit, $offset): \Api42Vb\Client\Model\VideoAttachmentList
 ```
 
 List of attachments
@@ -669,12 +670,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -706,7 +707,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VideoAttachmentList**](../Model/VideoAttachmentList.md)
+[**\Api42Vb\Client\Model\VideoAttachmentList**](../Model/VideoAttachmentList.md)
 
 ### Authorization
 
@@ -724,7 +725,7 @@ try {
 ## `getVideoById()`
 
 ```php
-getVideoById($video_id, $token): \OpenAPI\Client\Model\Video
+getVideoById($video_id, $token): \Api42Vb\Client\Model\Video
 ```
 
 Retun a single video
@@ -737,12 +738,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -768,7 +769,67 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Video**](../Model/Video.md)
+[**\Api42Vb\Client\Model\Video**](../Model/Video.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getVideoStatusById()`
+
+```php
+getVideoStatusById($video_id): \Api42Vb\Client\Model\VideoStatus
+```
+
+Retun the detailed status of the video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+
+try {
+    $result = $apiInstance->getVideoStatusById($video_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->getVideoStatusById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+
+### Return type
+
+[**\Api42Vb\Client\Model\VideoStatus**](../Model/VideoStatus.md)
 
 ### Authorization
 
@@ -786,12 +847,12 @@ try {
 ## `getVideos()`
 
 ```php
-getVideos($limit, $offset, $search, $sort): \OpenAPI\Client\Model\VideoList
+getVideos($limit, $offset, $search, $sort): \Api42Vb\Client\Model\VideoList
 ```
 
 List videos
 
-Return the list of videos.  Optionnal: Title is used to filter video: only video containing  this string ware returned.  Return an empty list it there is no video to return.
+Return the list of videos.  Return an empty list it there is no video to return.
 
 ### Example
 
@@ -801,12 +862,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -815,7 +876,7 @@ $apiInstance = new OpenAPI\Client\Api\VideosApi(
 $limit = 56; // int | Number of elements to return (default=10)
 $offset = 56; // int | offset for pagination
 $search = {{search}}; // string | Keywords search in all indexed fields
-$sort = title:desc,ctime:asc; // string | Sorting results
+$sort = ctime:asc; // string | Sorting results
 
 try {
     $result = $apiInstance->getVideos($limit, $offset, $search, $sort);
@@ -836,7 +897,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VideoList**](../Model/VideoList.md)
+[**\Api42Vb\Client\Model\VideoList**](../Model/VideoList.md)
 
 ### Authorization
 
@@ -854,7 +915,7 @@ try {
 ## `initMultipartUploadVideoById()`
 
 ```php
-initMultipartUploadVideoById($video_id, $video_multipart_upload_init): \OpenAPI\Client\Model\VideoMultipartUploadInitResponse
+initMultipartUploadVideoById($video_id, $video_multipart_upload_init): \Api42Vb\Client\Model\VideoMultipartUploadInitResponse
 ```
 
 Multipart upload intialization
@@ -869,19 +930,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $video_id = {{videoId}}; // string | Id of the video
-$video_multipart_upload_init = new \OpenAPI\Client\Model\VideoMultipartUploadInit(); // \OpenAPI\Client\Model\VideoMultipartUploadInit
+$video_multipart_upload_init = new \Api42Vb\Client\Model\VideoMultipartUploadInit(); // \Api42Vb\Client\Model\VideoMultipartUploadInit
 
 try {
     $result = $apiInstance->initMultipartUploadVideoById($video_id, $video_multipart_upload_init);
@@ -896,11 +957,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **video_id** | **string**| Id of the video | |
-| **video_multipart_upload_init** | [**\OpenAPI\Client\Model\VideoMultipartUploadInit**](../Model/VideoMultipartUploadInit.md)|  | [optional] |
+| **video_multipart_upload_init** | [**\Api42Vb\Client\Model\VideoMultipartUploadInit**](../Model/VideoMultipartUploadInit.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VideoMultipartUploadInitResponse**](../Model/VideoMultipartUploadInitResponse.md)
+[**\Api42Vb\Client\Model\VideoMultipartUploadInitResponse**](../Model/VideoMultipartUploadInitResponse.md)
 
 ### Authorization
 
@@ -918,7 +979,7 @@ try {
 ## `initUploadVideoById()`
 
 ```php
-initUploadVideoById($video_id): \OpenAPI\Client\Model\VideoUploadInitResponse
+initUploadVideoById($video_id): \Api42Vb\Client\Model\VideoUploadInitResponse
 ```
 
 Single file upload intialization
@@ -933,12 +994,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -962,7 +1023,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VideoUploadInitResponse**](../Model/VideoUploadInitResponse.md)
+[**\Api42Vb\Client\Model\VideoUploadInitResponse**](../Model/VideoUploadInitResponse.md)
 
 ### Authorization
 
@@ -995,19 +1056,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: api_key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\VideosApi(
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $video_id = {{videoId}}; // string | Id of the video
-$video_properties = new \OpenAPI\Client\Model\VideoProperties(); // \OpenAPI\Client\Model\VideoProperties
+$video_properties = new \Api42Vb\Client\Model\VideoProperties(); // \Api42Vb\Client\Model\VideoProperties
 
 try {
     $apiInstance->updateVideoById($video_id, $video_properties);
@@ -1021,7 +1082,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **video_id** | **string**| Id of the video | |
-| **video_properties** | [**\OpenAPI\Client\Model\VideoProperties**](../Model/VideoProperties.md)|  | |
+| **video_properties** | [**\Api42Vb\Client\Model\VideoProperties**](../Model/VideoProperties.md)|  | |
 
 ### Return type
 
