@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ctime** | **int** | Creation date (timestamp) | [optional]
 **mtime** | **int** | Modification date (timestamp) | [optional]
 **assets** | [**\Api42Vb\Client\Model\VideoAssets**](VideoAssets.md) |  | [optional]
+**links** | [**\Api42Vb\Client\Model\Link[]**](Link.md) |  | [optional]
 **metas** | **array<string,mixed>** | metas data  free-form object: refere to the documentation | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

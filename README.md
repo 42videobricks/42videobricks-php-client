@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# Package\Subpackage
 
 42videobricks is a Video Platform As A Service (VPaaS)
 
@@ -12,14 +12,6 @@ Should also work with PHP 8.0.
 
 ### Composer
 
-#### From packagist.org
-
-```bash
-composer require 42videobricks/php-client
-```
-
-### From github repository
-
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
@@ -27,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/42videobricks/42videobricks-php-client"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "42videobricks/php-client": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
@@ -44,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+require_once('/path/to/Package\Subpackage/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -55,21 +47,30 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 
-$apiInstance = new Api42Vb\Client\Api\VideosApi(
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 10; // int | Number of elements to return (default=10)
-$offset = 0; // int | offset for pagination
+$limit = 56; // int | Number of elements to return (default=10)
+$offset = 56; // int | offset for pagination
+$start_date = {{starDate}}; // string | Start date for the period
+$end_date = {{endDate}}; // string | End date for the period
 
 try {
-    $result = $apiInstance->getVideos($limit, $offset);
+    $result = $apiInstance->getDataVideoAnalytics($limit, $offset, $start_date, $end_date);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VideosApi->getVideos: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DataApi->getDataVideoAnalytics: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -80,7 +81,18 @@ All URIs are relative to *https://api-sbx.42videobricks.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DataApi* | [**getDataVideoAnalytics**](docs/Api/DataApi.md#getdatavideoanalytics) | **GET** /data/videos/analytics | List Video Analytics KPIs
 *DataApi* | [**getDataVideoUsage**](docs/Api/DataApi.md#getdatavideousage) | **GET** /data/videos/usage | List Video Usage KPIs
+*LivesApi* | [**addLive**](docs/Api/LivesApi.md#addlive) | **POST** /lives | Create a live event
+*LivesApi* | [**addSlateByLiveIdAndName**](docs/Api/LivesApi.md#addslatebyliveidandname) | **POST** /lives/{liveId}/slate/{slateName} | Upload an image file and set it as a slate for a live event
+*LivesApi* | [**addThumbnailByLiveId**](docs/Api/LivesApi.md#addthumbnailbyliveid) | **POST** /lives/{liveId}/thumbnail | Upload an image file and set it as the Thumbnail for a video
+*LivesApi* | [**deleteLiveById**](docs/Api/LivesApi.md#deletelivebyid) | **DELETE** /lives/{liveId} | Delete a live event
+*LivesApi* | [**getLiveById**](docs/Api/LivesApi.md#getlivebyid) | **GET** /lives/{liveId} | Get details of a live event
+*LivesApi* | [**getLives**](docs/Api/LivesApi.md#getlives) | **GET** /lives | Retrieve a list of live events
+*LivesApi* | [**getLivesCaptureSources**](docs/Api/LivesApi.md#getlivescapturesources) | **GET** /lives/captureSources | Retrieve a list of capture sources
+*LivesApi* | [**getScenesByLiveId**](docs/Api/LivesApi.md#getscenesbyliveid) | **GET** /lives/{liveId}/scenes | List of the scenes in the live event
+*LivesApi* | [**updateLiveById**](docs/Api/LivesApi.md#updatelivebyid) | **PUT** /lives/{liveId} | Update details of a live event
+*LivesApi* | [**updateStateOfScene**](docs/Api/LivesApi.md#updatestateofscene) | **PUT** /lives/{liveId}/scenes/{sceneName}/{state} | Update the state of a scene based on its id
 *PlaylistsApi* | [**addPlaylist**](docs/Api/PlaylistsApi.md#addplaylist) | **POST** /playlists | Add a new playlist
 *PlaylistsApi* | [**deletePlaylistById**](docs/Api/PlaylistsApi.md#deleteplaylistbyid) | **DELETE** /playlists/{playlistId} | Delete a playlist
 *PlaylistsApi* | [**getPlaylistById**](docs/Api/PlaylistsApi.md#getplaylistbyid) | **GET** /playlists/{playlistId} | Retun a single playlist
@@ -91,6 +103,8 @@ Class | Method | HTTP request | Description
 *VideosApi* | [**addThumbnailByVideoId**](docs/Api/VideosApi.md#addthumbnailbyvideoid) | **POST** /videos/{videoId}/thumbnail | Upload a thumbnail
 *VideosApi* | [**addVideo**](docs/Api/VideosApi.md#addvideo) | **POST** /videos | Add a new video
 *VideosApi* | [**deleteAttachmentByVideoId**](docs/Api/VideosApi.md#deleteattachmentbyvideoid) | **DELETE** /videos/{videoId}/attachments/{attachmentType}/{locale} | Delete an attachment
+*VideosApi* | [**deleteExportToVideo**](docs/Api/VideosApi.md#deleteexporttovideo) | **DELETE** /videos/{videoId}/exports/{format} | Delete an export of the video
+*VideosApi* | [**deleteLinkToVideo**](docs/Api/VideosApi.md#deletelinktovideo) | **DELETE** /videos/{videoId}/links/{linkType} | Delete a link
 *VideosApi* | [**deleteThumbnailByVideoId**](docs/Api/VideosApi.md#deletethumbnailbyvideoid) | **DELETE** /videos/{videoId}/thumbnail | Delete a thumbnail
 *VideosApi* | [**deleteVideoById**](docs/Api/VideosApi.md#deletevideobyid) | **DELETE** /videos/{videoId} | Delete a video
 *VideosApi* | [**finalizeMultipartUploadVideoById**](docs/Api/VideosApi.md#finalizemultipartuploadvideobyid) | **POST** /videos/{videoId}/multipart-upload/finalize | Multipart upload finalization
@@ -98,11 +112,17 @@ Class | Method | HTTP request | Description
 *VideosApi* | [**getAttachmentByVideoId**](docs/Api/VideosApi.md#getattachmentbyvideoid) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale} | Get the attachment
 *VideosApi* | [**getAttachmentFileByVideoId**](docs/Api/VideosApi.md#getattachmentfilebyvideoid) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file
 *VideosApi* | [**getAttachmentsByVideoId**](docs/Api/VideosApi.md#getattachmentsbyvideoid) | **GET** /videos/{videoId}/attachments | List of attachments
+*VideosApi* | [**getExportToVideoById**](docs/Api/VideosApi.md#getexporttovideobyid) | **GET** /videos/{videoId}/exports | Get the list exports of the video
+*VideosApi* | [**getExportUrlToVideoById**](docs/Api/VideosApi.md#getexporturltovideobyid) | **GET** /videos/{videoId}/exports/{format} | Get an url of the export of the video
 *VideosApi* | [**getVideoById**](docs/Api/VideosApi.md#getvideobyid) | **GET** /videos/{videoId} | Retun a single video
 *VideosApi* | [**getVideoStatusById**](docs/Api/VideosApi.md#getvideostatusbyid) | **GET** /videos/{videoId}/status | Retun the detailed status of the video
 *VideosApi* | [**getVideos**](docs/Api/VideosApi.md#getvideos) | **GET** /videos | List videos
 *VideosApi* | [**initMultipartUploadVideoById**](docs/Api/VideosApi.md#initmultipartuploadvideobyid) | **POST** /videos/{videoId}/multipart-upload/init | Multipart upload intialization
 *VideosApi* | [**initUploadVideoById**](docs/Api/VideosApi.md#inituploadvideobyid) | **GET** /videos/{videoId}/upload/init | Single file upload intialization
+*VideosApi* | [**moveEnvironmentVideoById**](docs/Api/VideosApi.md#moveenvironmentvideobyid) | **PUT** /videos/{videoId}/moveTo/{environment} | Update environment of video
+*VideosApi* | [**postExportToVideo**](docs/Api/VideosApi.md#postexporttovideo) | **POST** /videos/{videoId}/exports/{format} | Add export to the video
+*VideosApi* | [**postLinkToVideo**](docs/Api/VideosApi.md#postlinktovideo) | **POST** /videos/{videoId}/links | Add link to the video
+*VideosApi* | [**putLinkToVideo**](docs/Api/VideosApi.md#putlinktovideo) | **PUT** /videos/{videoId}/links/{linkType} | Update link to the video
 *VideosApi* | [**updateVideoById**](docs/Api/VideosApi.md#updatevideobyid) | **PUT** /videos/{videoId} | Update an existing video
 *WebhooksApi* | [**addWebhook**](docs/Api/WebhooksApi.md#addwebhook) | **POST** /webhooks | Add a new webhook
 *WebhooksApi* | [**deleteWebhookById**](docs/Api/WebhooksApi.md#deletewebhookbyid) | **DELETE** /webhooks/{webhookId} | Delete a webhook
@@ -112,13 +132,28 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [DataVideoAnalytic](docs/Model/DataVideoAnalytic.md)
+- [DataVideoAnalyticList](docs/Model/DataVideoAnalyticList.md)
 - [DataVideoUsage](docs/Model/DataVideoUsage.md)
 - [DataVideoUsageList](docs/Model/DataVideoUsageList.md)
 - [Error](docs/Model/Error.md)
+- [Export](docs/Model/Export.md)
+- [ExportList](docs/Model/ExportList.md)
+- [ExportProperties](docs/Model/ExportProperties.md)
+- [GetScenesByLiveId200Response](docs/Model/GetScenesByLiveId200Response.md)
+- [Link](docs/Model/Link.md)
+- [Live](docs/Model/Live.md)
+- [LiveAllOfAssets](docs/Model/LiveAllOfAssets.md)
+- [LiveList](docs/Model/LiveList.md)
+- [LiveProperties](docs/Model/LiveProperties.md)
+- [LiveStatus](docs/Model/LiveStatus.md)
 - [Pagination](docs/Model/Pagination.md)
 - [Playlist](docs/Model/Playlist.md)
+- [PlaylistAssets](docs/Model/PlaylistAssets.md)
 - [PlaylistList](docs/Model/PlaylistList.md)
 - [PlaylistProperties](docs/Model/PlaylistProperties.md)
+- [Scene](docs/Model/Scene.md)
+- [Slate](docs/Model/Slate.md)
 - [TagList](docs/Model/TagList.md)
 - [Video](docs/Model/Video.md)
 - [VideoAssets](docs/Model/VideoAssets.md)
@@ -147,6 +182,13 @@ Authentication schemes defined for the API:
 - **Location**: HTTP header
 
 
+### gw-42vb-authorizer
+
+- **Type**: API key
+- **API key parameter name**: x-api-key
+- **Location**: HTTP header
+
+
 ## Tests
 
 To run the tests, use:
@@ -164,6 +206,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.2`
-    - Package version: `1.2.1`
+- API version: `1.4`
+    - Package version: `1.4.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

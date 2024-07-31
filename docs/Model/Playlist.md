@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | name of the playlist | [optional]
 **description** | **string** | description of the playlist | [optional]
 **children** | [**\Api42Vb\Client\Model\Video[]**](Video.md) | ordered list of video in the playlist | [optional]
+**assets** | [**\Api42Vb\Client\Model\PlaylistAssets**](PlaylistAssets.md) |  | [optional]
 **ctime** | **int** | Creation date (timestamp) | [optional]
 **mtime** | **int** | Modification date (timestamp) | [optional]
 

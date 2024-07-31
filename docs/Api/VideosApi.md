@@ -8,6 +8,8 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**addThumbnailByVideoId()**](VideosApi.md#addThumbnailByVideoId) | **POST** /videos/{videoId}/thumbnail | Upload a thumbnail |
 | [**addVideo()**](VideosApi.md#addVideo) | **POST** /videos | Add a new video |
 | [**deleteAttachmentByVideoId()**](VideosApi.md#deleteAttachmentByVideoId) | **DELETE** /videos/{videoId}/attachments/{attachmentType}/{locale} | Delete an attachment |
+| [**deleteExportToVideo()**](VideosApi.md#deleteExportToVideo) | **DELETE** /videos/{videoId}/exports/{format} | Delete an export of the video |
+| [**deleteLinkToVideo()**](VideosApi.md#deleteLinkToVideo) | **DELETE** /videos/{videoId}/links/{linkType} | Delete a link |
 | [**deleteThumbnailByVideoId()**](VideosApi.md#deleteThumbnailByVideoId) | **DELETE** /videos/{videoId}/thumbnail | Delete a thumbnail |
 | [**deleteVideoById()**](VideosApi.md#deleteVideoById) | **DELETE** /videos/{videoId} | Delete a video |
 | [**finalizeMultipartUploadVideoById()**](VideosApi.md#finalizeMultipartUploadVideoById) | **POST** /videos/{videoId}/multipart-upload/finalize | Multipart upload finalization |
@@ -15,11 +17,17 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**getAttachmentByVideoId()**](VideosApi.md#getAttachmentByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale} | Get the attachment |
 | [**getAttachmentFileByVideoId()**](VideosApi.md#getAttachmentFileByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file |
 | [**getAttachmentsByVideoId()**](VideosApi.md#getAttachmentsByVideoId) | **GET** /videos/{videoId}/attachments | List of attachments |
+| [**getExportToVideoById()**](VideosApi.md#getExportToVideoById) | **GET** /videos/{videoId}/exports | Get the list exports of the video |
+| [**getExportUrlToVideoById()**](VideosApi.md#getExportUrlToVideoById) | **GET** /videos/{videoId}/exports/{format} | Get an url of the export of the video |
 | [**getVideoById()**](VideosApi.md#getVideoById) | **GET** /videos/{videoId} | Retun a single video |
 | [**getVideoStatusById()**](VideosApi.md#getVideoStatusById) | **GET** /videos/{videoId}/status | Retun the detailed status of the video |
 | [**getVideos()**](VideosApi.md#getVideos) | **GET** /videos | List videos |
 | [**initMultipartUploadVideoById()**](VideosApi.md#initMultipartUploadVideoById) | **POST** /videos/{videoId}/multipart-upload/init | Multipart upload intialization |
 | [**initUploadVideoById()**](VideosApi.md#initUploadVideoById) | **GET** /videos/{videoId}/upload/init | Single file upload intialization |
+| [**moveEnvironmentVideoById()**](VideosApi.md#moveEnvironmentVideoById) | **PUT** /videos/{videoId}/moveTo/{environment} | Update environment of video |
+| [**postExportToVideo()**](VideosApi.md#postExportToVideo) | **POST** /videos/{videoId}/exports/{format} | Add export to the video |
+| [**postLinkToVideo()**](VideosApi.md#postLinkToVideo) | **POST** /videos/{videoId}/links | Add link to the video |
+| [**putLinkToVideo()**](VideosApi.md#putLinkToVideo) | **PUT** /videos/{videoId}/links/{linkType} | Update link to the video |
 | [**updateVideoById()**](VideosApi.md#updateVideoById) | **PUT** /videos/{videoId} | Update an existing video |
 
 
@@ -40,7 +48,7 @@ Upload an attachement file and attached it to a video Currently: - attachement f
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -79,7 +87,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -107,7 +115,7 @@ Upload an image file and set it as Thumbnail to the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -142,7 +150,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -170,7 +178,7 @@ You can create a video object by using this endpoint.  Once the video is created
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -204,7 +212,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -232,7 +240,7 @@ Delete an attachment (and the attached file)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -269,7 +277,133 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteExportToVideo()`
+
+```php
+deleteExportToVideo($video_id, $format, $export_id)
+```
+
+Delete an export of the video
+
+Delete an export of the video by format or export id By default the delete use LIFO pattern if the export id is empty
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$format = GIF; // string | The format to export - GIF : animated image file - BACKGROUND : a light format video
+$export_id = 56; // int | exportId
+
+try {
+    $apiInstance->deleteExportToVideo($video_id, $format, $export_id);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->deleteExportToVideo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **format** | **string**| The format to export - GIF : animated image file - BACKGROUND : a light format video | |
+| **export_id** | **int**| exportId | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteLinkToVideo()`
+
+```php
+deleteLinkToVideo($video_id, $link_type)
+```
+
+Delete a link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$link_type = {{linkType}}; // string | Type of attachment
+
+try {
+    $apiInstance->deleteLinkToVideo($video_id, $link_type);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->deleteLinkToVideo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **link_type** | **string**| Type of attachment | [default to &#39;ads&#39;] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -295,7 +429,7 @@ Delete a thumbnail
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -328,7 +462,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -354,7 +488,7 @@ Delete a video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -387,7 +521,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -415,7 +549,7 @@ Once video parts are uploaded, finalize the upload by requesting to transcode th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -450,7 +584,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -478,7 +612,7 @@ Once video file is uploaded, finalize the upload by requesting to transcode the 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -511,7 +645,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -539,7 +673,7 @@ Get a video attachement object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -576,7 +710,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -604,7 +738,7 @@ Get the attachement file Currently only text/plain files are handled.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -641,7 +775,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -669,7 +803,7 @@ Return a list of attachments to a videos
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -711,7 +845,140 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getExportToVideoById()`
+
+```php
+getExportToVideoById($video_id, $format, $limit, $offset): \Api42Vb\Client\Model\ExportList
+```
+
+Get the list exports of the video
+
+Get the list exports of the video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$format = {{format}}; // string | format
+$limit = 56; // int | Number of elements to return (default=10)
+$offset = 56; // int | offset for pagination
+
+try {
+    $result = $apiInstance->getExportToVideoById($video_id, $format, $limit, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->getExportToVideoById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **format** | **string**| format | [optional] |
+| **limit** | **int**| Number of elements to return (default&#x3D;10) | [optional] |
+| **offset** | **int**| offset for pagination | [optional] |
+
+### Return type
+
+[**\Api42Vb\Client\Model\ExportList**](../Model/ExportList.md)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getExportUrlToVideoById()`
+
+```php
+getExportUrlToVideoById($video_id, $format, $export_id)
+```
+
+Get an url of the export of the video
+
+Url of an export of the video by format or export id By default the get url use LIFO pattern if the export id is empty
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$format = GIF; // string | The format to export - GIF : animated image file - BACKGROUND : a light format video
+$export_id = 56; // int | exportId
+
+try {
+    $apiInstance->getExportUrlToVideoById($video_id, $format, $export_id);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->getExportUrlToVideoById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **format** | **string**| The format to export - GIF : animated image file - BACKGROUND : a light format video | |
+| **export_id** | **int**| exportId | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -737,7 +1004,7 @@ Retun a single video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -773,7 +1040,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -799,7 +1066,7 @@ Retun the detailed status of the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -833,7 +1100,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -861,7 +1128,7 @@ Return the list of videos.  Return an empty list it there is no video to return.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -901,7 +1168,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -929,7 +1196,7 @@ Get signed urls to upload a big file split in multiparts Once the video is uploa
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -965,7 +1232,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
@@ -993,7 +1260,7 @@ Get a single signed url to upload a file Once the video is uploaded, do not forg
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1027,11 +1294,267 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `moveEnvironmentVideoById()`
+
+```php
+moveEnvironmentVideoById($video_id, $environment)
+```
+
+Update environment of video
+
+Update environment of video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$environment = {{environment}}; // string | Name of environment
+
+try {
+    $apiInstance->moveEnvironmentVideoById($video_id, $environment);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->moveEnvironmentVideoById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **environment** | **string**| Name of environment | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `postExportToVideo()`
+
+```php
+postExportToVideo($video_id, $format, $export_properties)
+```
+
+Add export to the video
+
+Add export to the video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$format = GIF; // string | The format to export - GIF : animated image file - BACKGROUND : a light format video
+$export_properties = new \Api42Vb\Client\Model\ExportProperties(); // \Api42Vb\Client\Model\ExportProperties
+
+try {
+    $apiInstance->postExportToVideo($video_id, $format, $export_properties);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->postExportToVideo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **format** | **string**| The format to export - GIF : animated image file - BACKGROUND : a light format video | |
+| **export_properties** | [**\Api42Vb\Client\Model\ExportProperties**](../Model/ExportProperties.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `postLinkToVideo()`
+
+```php
+postLinkToVideo($video_id, $link)
+```
+
+Add link to the video
+
+Add link to the video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$link = new \Api42Vb\Client\Model\Link(); // \Api42Vb\Client\Model\Link
+
+try {
+    $apiInstance->postLinkToVideo($video_id, $link);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->postLinkToVideo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **link** | [**\Api42Vb\Client\Model\Link**](../Model/Link.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putLinkToVideo()`
+
+```php
+putLinkToVideo($video_id, $link_type, $link)
+```
+
+Update link to the video
+
+Update link to the video
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: gw-42vb-authorizer
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+$link_type = {{linkType}}; // string | Type of attachment
+$link = new \Api42Vb\Client\Model\Link(); // \Api42Vb\Client\Model\Link
+
+try {
+    $apiInstance->putLinkToVideo($video_id, $link_type, $link);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->putLinkToVideo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+| **link_type** | **string**| Type of attachment | [default to &#39;ads&#39;] |
+| **link** | [**\Api42Vb\Client\Model\Link**](../Model/Link.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1055,7 +1578,7 @@ Update video properties  Only properties provided are updated.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
+// Configure API key authorization: gw-42vb-authorizer
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1090,7 +1613,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
 
 ### HTTP request headers
 
