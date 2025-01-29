@@ -59,7 +59,7 @@ class PlayerProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'config' => '\Api42Vb\Client\Model\Config'
+        'config' => '\Api42Vb\Client\Model\PlayerConfig'
     ];
 
     /**
@@ -335,7 +335,7 @@ class PlayerProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets config
      *
-     * @return \Api42Vb\Client\Model\Config|null
+     * @return \Api42Vb\Client\Model\PlayerConfig|null
      */
     public function getConfig()
     {
@@ -345,7 +345,7 @@ class PlayerProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config
      *
-     * @param \Api42Vb\Client\Model\Config|null $config config
+     * @param \Api42Vb\Client\Model\PlayerConfig|null $config config
      *
      * @return self
      */

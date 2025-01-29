@@ -50,7 +50,7 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Player_config';
+    protected static $openAPIModelName = 'PlayerConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'controls' => '\Api42Vb\Client\Model\PlayerConfigControls',
-        'colors' => '\Api42Vb\Client\Model\PlayerConfigColors'
+        'colors' => '\Api42Vb\Client\Model\PlayerConfigColors',
+        'controls' => '\Api42Vb\Client\Model\PlayerConfigControls'
     ];
 
     /**
@@ -70,8 +70,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'controls' => null,
-        'colors' => null
+        'colors' => null,
+        'controls' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'controls' => false,
-		'colors' => false
+        'colors' => false,
+		'controls' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'controls' => 'controls',
-        'colors' => 'colors'
+        'colors' => 'colors',
+        'controls' => 'controls'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'controls' => 'setControls',
-        'colors' => 'setColors'
+        'colors' => 'setColors',
+        'controls' => 'setControls'
     ];
 
     /**
@@ -190,8 +190,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'controls' => 'getControls',
-        'colors' => 'getColors'
+        'colors' => 'getColors',
+        'controls' => 'getControls'
     ];
 
     /**
@@ -251,8 +251,8 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('controls', $data ?? [], null);
         $this->setIfExists('colors', $data ?? [], null);
+        $this->setIfExists('controls', $data ?? [], null);
     }
 
     /**
@@ -298,33 +298,6 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets controls
-     *
-     * @return \Api42Vb\Client\Model\PlayerConfigControls|null
-     */
-    public function getControls()
-    {
-        return $this->container['controls'];
-    }
-
-    /**
-     * Sets controls
-     *
-     * @param \Api42Vb\Client\Model\PlayerConfigControls|null $controls controls
-     *
-     * @return self
-     */
-    public function setControls($controls)
-    {
-        if (is_null($controls)) {
-            throw new \InvalidArgumentException('non-nullable controls cannot be null');
-        }
-        $this->container['controls'] = $controls;
-
-        return $this;
-    }
-
-    /**
      * Gets colors
      *
      * @return \Api42Vb\Client\Model\PlayerConfigColors|null
@@ -347,6 +320,33 @@ class PlayerConfig implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable colors cannot be null');
         }
         $this->container['colors'] = $colors;
+
+        return $this;
+    }
+
+    /**
+     * Gets controls
+     *
+     * @return \Api42Vb\Client\Model\PlayerConfigControls|null
+     */
+    public function getControls()
+    {
+        return $this->container['controls'];
+    }
+
+    /**
+     * Sets controls
+     *
+     * @param \Api42Vb\Client\Model\PlayerConfigControls|null $controls controls
+     *
+     * @return self
+     */
+    public function setControls($controls)
+    {
+        if (is_null($controls)) {
+            throw new \InvalidArgumentException('non-nullable controls cannot be null');
+        }
+        $this->container['controls'] = $controls;
 
         return $this;
     }

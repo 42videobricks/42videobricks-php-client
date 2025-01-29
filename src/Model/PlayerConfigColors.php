@@ -50,7 +50,7 @@ class PlayerConfigColors implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Player_config_colors';
+    protected static $openAPIModelName = 'PlayerConfig_colors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

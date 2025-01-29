@@ -50,7 +50,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Player_config_controls';
+    protected static $openAPIModelName = 'PlayerConfig_controls';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -299,16 +299,16 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('play', $data ?? [], null);
-        $this->setIfExists('settings', $data ?? [], null);
-        $this->setIfExists('progress', $data ?? [], null);
-        $this->setIfExists('subtitle', $data ?? [], null);
-        $this->setIfExists('speed', $data ?? [], null);
-        $this->setIfExists('skip', $data ?? [], null);
-        $this->setIfExists('sound', $data ?? [], null);
-        $this->setIfExists('quality', $data ?? [], null);
-        $this->setIfExists('loop', $data ?? [], null);
-        $this->setIfExists('full', $data ?? [], null);
+        $this->setIfExists('play', $data ?? [], true);
+        $this->setIfExists('settings', $data ?? [], true);
+        $this->setIfExists('progress', $data ?? [], true);
+        $this->setIfExists('subtitle', $data ?? [], true);
+        $this->setIfExists('speed', $data ?? [], true);
+        $this->setIfExists('skip', $data ?? [], true);
+        $this->setIfExists('sound', $data ?? [], true);
+        $this->setIfExists('quality', $data ?? [], true);
+        $this->setIfExists('loop', $data ?? [], true);
+        $this->setIfExists('full', $data ?? [], true);
     }
 
     /**
@@ -338,36 +338,6 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['play'] === null) {
-            $invalidProperties[] = "'play' can't be null";
-        }
-        if ($this->container['settings'] === null) {
-            $invalidProperties[] = "'settings' can't be null";
-        }
-        if ($this->container['progress'] === null) {
-            $invalidProperties[] = "'progress' can't be null";
-        }
-        if ($this->container['subtitle'] === null) {
-            $invalidProperties[] = "'subtitle' can't be null";
-        }
-        if ($this->container['speed'] === null) {
-            $invalidProperties[] = "'speed' can't be null";
-        }
-        if ($this->container['skip'] === null) {
-            $invalidProperties[] = "'skip' can't be null";
-        }
-        if ($this->container['sound'] === null) {
-            $invalidProperties[] = "'sound' can't be null";
-        }
-        if ($this->container['quality'] === null) {
-            $invalidProperties[] = "'quality' can't be null";
-        }
-        if ($this->container['loop'] === null) {
-            $invalidProperties[] = "'loop' can't be null";
-        }
-        if ($this->container['full'] === null) {
-            $invalidProperties[] = "'full' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -386,7 +356,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets play
      *
-     * @return bool
+     * @return bool|null
      */
     public function getPlay()
     {
@@ -396,7 +366,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets play
      *
-     * @param bool $play Indicates if the play option is enabled.
+     * @param bool|null $play Indicates if the play option is enabled.
      *
      * @return self
      */
@@ -413,7 +383,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets settings
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSettings()
     {
@@ -423,7 +393,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets settings
      *
-     * @param bool $settings Indicates if the settings option is enabled.
+     * @param bool|null $settings Indicates if the settings option is enabled.
      *
      * @return self
      */
@@ -440,7 +410,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets progress
      *
-     * @return bool
+     * @return bool|null
      */
     public function getProgress()
     {
@@ -450,7 +420,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets progress
      *
-     * @param bool $progress Indicates if the progress option is enabled.
+     * @param bool|null $progress Indicates if the progress option is enabled.
      *
      * @return self
      */
@@ -467,7 +437,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets subtitle
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSubtitle()
     {
@@ -477,7 +447,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets subtitle
      *
-     * @param bool $subtitle Indicates if the subtitle option is enabled.
+     * @param bool|null $subtitle Indicates if the subtitle option is enabled.
      *
      * @return self
      */
@@ -494,7 +464,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets speed
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSpeed()
     {
@@ -504,7 +474,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets speed
      *
-     * @param bool $speed Indicates if the speed option is enabled.
+     * @param bool|null $speed Indicates if the speed option is enabled.
      *
      * @return self
      */
@@ -521,7 +491,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets skip
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSkip()
     {
@@ -531,7 +501,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets skip
      *
-     * @param bool $skip Indicates if the skip option is enabled.
+     * @param bool|null $skip Indicates if the skip option is enabled.
      *
      * @return self
      */
@@ -548,7 +518,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets sound
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSound()
     {
@@ -558,7 +528,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets sound
      *
-     * @param bool $sound Indicates if the sound option is enabled.
+     * @param bool|null $sound Indicates if the sound option is enabled.
      *
      * @return self
      */
@@ -575,7 +545,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets quality
      *
-     * @return bool
+     * @return bool|null
      */
     public function getQuality()
     {
@@ -585,7 +555,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets quality
      *
-     * @param bool $quality Indicates if the quality option is enabled.
+     * @param bool|null $quality Indicates if the quality option is enabled.
      *
      * @return self
      */
@@ -602,7 +572,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets loop
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLoop()
     {
@@ -612,7 +582,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets loop
      *
-     * @param bool $loop Indicates if the loop option is enabled.
+     * @param bool|null $loop Indicates if the loop option is enabled.
      *
      * @return self
      */
@@ -629,7 +599,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets full
      *
-     * @return bool
+     * @return bool|null
      */
     public function getFull()
     {
@@ -639,7 +609,7 @@ class PlayerConfigControls implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets full
      *
-     * @param bool $full Indicates if the full-screen option is enabled.
+     * @param bool|null $full Indicates if the full-screen option is enabled.
      *
      * @return self
      */
