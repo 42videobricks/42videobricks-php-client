@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **capture_source** | **string** | The closest source to capture the live stream, see /lives/captureSources | [optional]
 **start_at** | **int** | The start datetime of the live in timestamp format | [optional]
 **end_at** | **int** | The end datetime of the live in timestamp format | [optional]
+**player_id** | **string** | Video player theme id | [optional] [default to '']
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

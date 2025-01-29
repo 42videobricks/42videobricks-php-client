@@ -24,7 +24,7 @@ Return the list of tags created and set to videos
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -62,7 +62,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

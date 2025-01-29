@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **capture_source** | **string** | The closest source to capture the live stream, see /lives/captureSources | [optional]
 **start_at** | **int** | The start datetime of the live in timestamp format | [optional]
 **end_at** | **int** | The end datetime of the live in timestamp format | [optional]
+**player_id** | **string** | Video player theme id | [optional] [default to '']
 **id** | **string** | id of the live (null when adding a new live) | [optional]
 **assets** | [**\Api42Vb\Client\Model\LiveAllOfAssets**](LiveAllOfAssets.md) |  | [optional]
 **live_status** | [**\Api42Vb\Client\Model\LiveStatus**](LiveStatus.md) |  | [optional]

@@ -33,7 +33,7 @@ Creates a new live event and returns its details. This endpoint returns the deta
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -67,7 +67,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -95,7 +95,7 @@ Uploads an image file and sets it as a slate for a specific live event. This end
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -132,7 +132,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -160,7 +160,7 @@ Uploads an image file and sets it as the Thumbnail for a specific video associat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -195,7 +195,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -223,7 +223,7 @@ Deletes a specific live event based on its ID. This endpoint confirms the deleti
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -256,7 +256,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -284,7 +284,7 @@ Returns the detailed information of a specific live event based on its ID. This 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -318,7 +318,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -346,7 +346,7 @@ Fetches and returns a list of all live events available in the system. This endp
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -382,7 +382,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -396,7 +396,7 @@ try {
 ## `getLivesCaptureSources()`
 
 ```php
-getLivesCaptureSources()
+getLivesCaptureSources(): string[]
 ```
 
 Retrieve a list of capture sources
@@ -410,7 +410,7 @@ Fetches and returns a list of all available capture sources. This endpoint retur
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -424,7 +424,8 @@ $apiInstance = new Api42Vb\Client\Api\LivesApi(
 );
 
 try {
-    $apiInstance->getLivesCaptureSources();
+    $result = $apiInstance->getLivesCaptureSources();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LivesApi->getLivesCaptureSources: ', $e->getMessage(), PHP_EOL;
 }
@@ -436,11 +437,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**string[]**
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -468,7 +469,7 @@ Contains the list of scenes present for the live event - FEED : the scene contai
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -502,7 +503,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -530,7 +531,7 @@ Updates the details of a specific live event based on its ID. This endpoint retu
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -565,7 +566,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -593,7 +594,7 @@ Updates the state of scenes based on the provided data. This endpoint returns a 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -630,7 +631,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

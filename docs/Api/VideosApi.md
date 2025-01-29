@@ -48,7 +48,7 @@ Upload an attachement file and attached it to a video Currently: - attachement f
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -87,7 +87,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -115,7 +115,7 @@ Upload an image file and set it as Thumbnail to the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -150,7 +150,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -178,7 +178,7 @@ You can create a video object by using this endpoint.  Once the video is created
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -212,7 +212,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -240,7 +240,7 @@ Delete an attachment (and the attached file)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -277,7 +277,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -305,7 +305,7 @@ Delete an export of the video by format or export id By default the delete use L
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -342,7 +342,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -368,7 +368,7 @@ Delete a link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -403,7 +403,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -429,7 +429,7 @@ Delete a thumbnail
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -462,7 +462,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -488,7 +488,7 @@ Delete a video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -521,7 +521,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -549,7 +549,7 @@ Once video parts are uploaded, finalize the upload by requesting to transcode th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -584,7 +584,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -612,7 +612,7 @@ Once video file is uploaded, finalize the upload by requesting to transcode the 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -645,7 +645,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -673,7 +673,7 @@ Get a video attachement object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -710,7 +710,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -738,7 +738,7 @@ Get the attachement file Currently only text/plain files are handled.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -775,7 +775,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -803,7 +803,7 @@ Return a list of attachments to a videos
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -845,7 +845,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -873,7 +873,7 @@ Get the list exports of the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -913,7 +913,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -941,7 +941,7 @@ Url of an export of the video by format or export id By default the get url use 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -978,7 +978,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1004,7 +1004,7 @@ Retun a single video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1040,7 +1040,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1066,7 +1066,7 @@ Retun the detailed status of the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1100,7 +1100,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1128,7 +1128,7 @@ Return the list of videos.  Return an empty list it there is no video to return.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1168,7 +1168,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1196,7 +1196,7 @@ Get signed urls to upload a big file split in multiparts Once the video is uploa
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1232,7 +1232,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1260,7 +1260,7 @@ Get a single signed url to upload a file Once the video is uploaded, do not forg
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1294,7 +1294,7 @@ try {
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1322,7 +1322,7 @@ Update environment of video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1357,7 +1357,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1385,7 +1385,7 @@ Add export to the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1422,7 +1422,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1450,7 +1450,7 @@ Add link to the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1485,7 +1485,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1513,7 +1513,7 @@ Update link to the video
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1550,7 +1550,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1578,7 +1578,7 @@ Update video properties  Only properties provided are updated.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: gw-42vb-authorizer
+// Configure API key authorization: api_key
 $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -1613,7 +1613,7 @@ void (empty response body)
 
 ### Authorization
 
-[gw-42vb-authorizer](../../README.md#gw-42vb-authorizer)
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

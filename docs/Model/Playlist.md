@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **string** | description of the playlist | [optional]
 **children** | [**\Api42Vb\Client\Model\Video[]**](Video.md) | ordered list of video in the playlist | [optional]
 **assets** | [**\Api42Vb\Client\Model\PlaylistAssets**](PlaylistAssets.md) |  | [optional]
+**player_id** | **string** | Video player theme id | [optional] [default to '']
 **ctime** | **int** | Creation date (timestamp) | [optional]
 **mtime** | **int** | Modification date (timestamp) | [optional]
 
