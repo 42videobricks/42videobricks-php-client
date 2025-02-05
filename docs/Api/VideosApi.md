@@ -63,7 +63,7 @@ $apiInstance = new Api42Vb\Client\Api\VideosApi(
 $video_id = {{videoId}}; // string | Id of the video
 $attachment_type = {{attachmentType}}; // string | Type of attachment
 $locale = {{locale}}; // string | Le locale value of the attachment
-$file = "/path/to/file.txt"; // \SplFileObject | The file to upload
+$file = '/path/to/file.txt'; // \SplFileObject | The file to upload
 
 try {
     $apiInstance->addAttachmentByVideoId($video_id, $attachment_type, $locale, $file);
@@ -128,7 +128,7 @@ $apiInstance = new Api42Vb\Client\Api\VideosApi(
     $config
 );
 $video_id = {{videoId}}; // string | Id of the video
-$file = "/path/to/file.txt"; // \SplFileObject | The file to upload
+$file = '/path/to/file.txt'; // \SplFileObject | The file to upload
 
 try {
     $apiInstance->addThumbnailByVideoId($video_id, $file);

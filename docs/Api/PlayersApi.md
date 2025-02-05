@@ -37,7 +37,7 @@ $apiInstance = new Api42Vb\Client\Api\PlayersApi(
     $config
 );
 $player_id = {{playerId}}; // string | Id of the player
-$file = "/path/to/file.txt"; // \SplFileObject
+$file = '/path/to/file.txt'; // \SplFileObject
 $description = 'description_example'; // string
 
 try {

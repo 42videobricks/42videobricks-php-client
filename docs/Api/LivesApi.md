@@ -109,7 +109,7 @@ $apiInstance = new Api42Vb\Client\Api\LivesApi(
 );
 $live_id = {{liveId}}; // string | Id of the live
 $slate_name = {{slateName}}; // string | The name of slate
-$file = "/path/to/file.txt"; // \SplFileObject | The file to upload
+$file = '/path/to/file.txt'; // \SplFileObject | The file to upload
 
 try {
     $apiInstance->addSlateByLiveIdAndName($live_id, $slate_name, $file);
@@ -173,7 +173,7 @@ $apiInstance = new Api42Vb\Client\Api\LivesApi(
     $config
 );
 $live_id = {{liveId}}; // string | Id of the live
-$file = "/path/to/file.txt"; // \SplFileObject | The file to upload
+$file = '/path/to/file.txt'; // \SplFileObject | The file to upload
 
 try {
     $apiInstance->addThumbnailByLiveId($live_id, $file);
