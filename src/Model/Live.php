@@ -72,6 +72,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         'live_status' => '\Api42Vb\Client\Model\LiveStatus',
         'input_stream_url' => 'string',
         'stream_test' => 'string',
+        'sub_status' => 'string',
         'ctime' => 'int',
         'mtime' => 'int'
     ];
@@ -98,6 +99,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         'live_status' => null,
         'input_stream_url' => null,
         'stream_test' => null,
+        'sub_status' => null,
         'ctime' => null,
         'mtime' => null
     ];
@@ -122,6 +124,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
 		'live_status' => false,
 		'input_stream_url' => false,
 		'stream_test' => false,
+		'sub_status' => false,
 		'ctime' => false,
 		'mtime' => false
     ];
@@ -226,6 +229,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         'live_status' => 'liveStatus',
         'input_stream_url' => 'inputStreamUrl',
         'stream_test' => 'streamTest',
+        'sub_status' => 'subStatus',
         'ctime' => 'ctime',
         'mtime' => 'mtime'
     ];
@@ -250,6 +254,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         'live_status' => 'setLiveStatus',
         'input_stream_url' => 'setInputStreamUrl',
         'stream_test' => 'setStreamTest',
+        'sub_status' => 'setSubStatus',
         'ctime' => 'setCtime',
         'mtime' => 'setMtime'
     ];
@@ -274,6 +279,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         'live_status' => 'getLiveStatus',
         'input_stream_url' => 'getInputStreamUrl',
         'stream_test' => 'getStreamTest',
+        'sub_status' => 'getSubStatus',
         'ctime' => 'getCtime',
         'mtime' => 'getMtime'
     ];
@@ -364,6 +370,7 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('live_status', $data ?? [], null);
         $this->setIfExists('input_stream_url', $data ?? [], null);
         $this->setIfExists('stream_test', $data ?? [], null);
+        $this->setIfExists('sub_status', $data ?? [], null);
         $this->setIfExists('ctime', $data ?? [], null);
         $this->setIfExists('mtime', $data ?? [], null);
     }
@@ -829,6 +836,33 @@ class Live implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable stream_test cannot be null');
         }
         $this->container['stream_test'] = $stream_test;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_status
+     *
+     * @return string|null
+     */
+    public function getSubStatus()
+    {
+        return $this->container['sub_status'];
+    }
+
+    /**
+     * Sets sub_status
+     *
+     * @param string|null $sub_status The sub status of live event
+     *
+     * @return self
+     */
+    public function setSubStatus($sub_status)
+    {
+        if (is_null($sub_status)) {
+            throw new \InvalidArgumentException('non-nullable sub_status cannot be null');
+        }
+        $this->container['sub_status'] = $sub_status;
 
         return $this;
     }

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **live_status** | [**\Api42Vb\Client\Model\LiveStatus**](LiveStatus.md) |  | [optional]
 **input_stream_url** | **string** | The input stream url to push the live source | [optional]
 **stream_test** | **string** | The stream preview url | [optional]
+**sub_status** | **string** | The sub status of live event | [optional]
 **ctime** | **int** | Creation datetime in timestamp format | [optional]
 **mtime** | **int** | Modification datetime in timestamp format | [optional]
 

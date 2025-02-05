@@ -197,7 +197,7 @@ try {
 ## `getPlaylists()`
 
 ```php
-getPlaylists($limit, $offset, $search, $sort): \Api42Vb\Client\Model\PlaylistList
+getPlaylists($limit, $offset, $search, $sort, $children): \Api42Vb\Client\Model\PlaylistList
 ```
 
 List playlists
@@ -227,9 +227,10 @@ $limit = 56; // int | Number of elements to return (default=10)
 $offset = 56; // int | offset for pagination
 $search = {{search}}; // string | Keywords search in all indexed fields
 $sort = ctime:asc; // string | Sorting results
+$children = {{videoId}}; // string | videoId that the playlist must contain in children
 
 try {
-    $result = $apiInstance->getPlaylists($limit, $offset, $search, $sort);
+    $result = $apiInstance->getPlaylists($limit, $offset, $search, $sort, $children);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlaylistsApi->getPlaylists: ', $e->getMessage(), PHP_EOL;
@@ -244,6 +245,7 @@ try {
 | **offset** | **int**| offset for pagination | [optional] |
 | **search** | **string**| Keywords search in all indexed fields | [optional] |
 | **sort** | **string**| Sorting results | [optional] |
+| **children** | **string**| videoId that the playlist must contain in children | [optional] |
 
 ### Return type
 

@@ -1199,15 +1199,16 @@ class PlaylistsApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string $children videoId that the playlist must contain in children (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlaylists'] to see the possible values for this operation
      *
      * @throws \Api42Vb\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Api42Vb\Client\Model\PlaylistList|\Api42Vb\Client\Model\Error|\Api42Vb\Client\Model\Error
      */
-    public function getPlaylists($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getPlaylists'][0])
+    public function getPlaylists($limit = null, $offset = null, $search = null, $sort = null, $children = null, string $contentType = self::contentTypes['getPlaylists'][0])
     {
-        list($response) = $this->getPlaylistsWithHttpInfo($limit, $offset, $search, $sort, $contentType);
+        list($response) = $this->getPlaylistsWithHttpInfo($limit, $offset, $search, $sort, $children, $contentType);
         return $response;
     }
 
@@ -1220,15 +1221,16 @@ class PlaylistsApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string $children videoId that the playlist must contain in children (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlaylists'] to see the possible values for this operation
      *
      * @throws \Api42Vb\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Api42Vb\Client\Model\PlaylistList|\Api42Vb\Client\Model\Error|\Api42Vb\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPlaylistsWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getPlaylists'][0])
+    public function getPlaylistsWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, $children = null, string $contentType = self::contentTypes['getPlaylists'][0])
     {
-        $request = $this->getPlaylistsRequest($limit, $offset, $search, $sort, $contentType);
+        $request = $this->getPlaylistsRequest($limit, $offset, $search, $sort, $children, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1417,14 +1419,15 @@ class PlaylistsApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string $children videoId that the playlist must contain in children (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlaylists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlaylistsAsync($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getPlaylists'][0])
+    public function getPlaylistsAsync($limit = null, $offset = null, $search = null, $sort = null, $children = null, string $contentType = self::contentTypes['getPlaylists'][0])
     {
-        return $this->getPlaylistsAsyncWithHttpInfo($limit, $offset, $search, $sort, $contentType)
+        return $this->getPlaylistsAsyncWithHttpInfo($limit, $offset, $search, $sort, $children, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1441,15 +1444,16 @@ class PlaylistsApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string $children videoId that the playlist must contain in children (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlaylists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlaylistsAsyncWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getPlaylists'][0])
+    public function getPlaylistsAsyncWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, $children = null, string $contentType = self::contentTypes['getPlaylists'][0])
     {
         $returnType = '\Api42Vb\Client\Model\PlaylistList';
-        $request = $this->getPlaylistsRequest($limit, $offset, $search, $sort, $contentType);
+        $request = $this->getPlaylistsRequest($limit, $offset, $search, $sort, $children, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1494,12 +1498,13 @@ class PlaylistsApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string $children videoId that the playlist must contain in children (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlaylists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPlaylistsRequest($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getPlaylists'][0])
+    public function getPlaylistsRequest($limit = null, $offset = null, $search = null, $sort = null, $children = null, string $contentType = self::contentTypes['getPlaylists'][0])
     {
 
         if ($limit !== null && $limit > 1000) {
@@ -1509,6 +1514,7 @@ class PlaylistsApi
             throw new \InvalidArgumentException('invalid value for "$limit" when calling PlaylistsApi.getPlaylists, must be bigger than or equal to 1.');
         }
         
+
 
 
 
@@ -1551,6 +1557,15 @@ class PlaylistsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sort,
             'sort', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $children,
+            'children', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

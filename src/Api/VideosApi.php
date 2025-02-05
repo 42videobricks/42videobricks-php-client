@@ -5794,15 +5794,16 @@ class VideosApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string[] $tags Keywords search in all indexed fields (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVideos'] to see the possible values for this operation
      *
      * @throws \Api42Vb\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Api42Vb\Client\Model\VideoList|\Api42Vb\Client\Model\Error|\Api42Vb\Client\Model\Error
      */
-    public function getVideos($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getVideos'][0])
+    public function getVideos($limit = null, $offset = null, $search = null, $sort = null, $tags = null, string $contentType = self::contentTypes['getVideos'][0])
     {
-        list($response) = $this->getVideosWithHttpInfo($limit, $offset, $search, $sort, $contentType);
+        list($response) = $this->getVideosWithHttpInfo($limit, $offset, $search, $sort, $tags, $contentType);
         return $response;
     }
 
@@ -5815,15 +5816,16 @@ class VideosApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string[] $tags Keywords search in all indexed fields (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVideos'] to see the possible values for this operation
      *
      * @throws \Api42Vb\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Api42Vb\Client\Model\VideoList|\Api42Vb\Client\Model\Error|\Api42Vb\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVideosWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getVideos'][0])
+    public function getVideosWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, $tags = null, string $contentType = self::contentTypes['getVideos'][0])
     {
-        $request = $this->getVideosRequest($limit, $offset, $search, $sort, $contentType);
+        $request = $this->getVideosRequest($limit, $offset, $search, $sort, $tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6012,14 +6014,15 @@ class VideosApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string[] $tags Keywords search in all indexed fields (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVideos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVideosAsync($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getVideos'][0])
+    public function getVideosAsync($limit = null, $offset = null, $search = null, $sort = null, $tags = null, string $contentType = self::contentTypes['getVideos'][0])
     {
-        return $this->getVideosAsyncWithHttpInfo($limit, $offset, $search, $sort, $contentType)
+        return $this->getVideosAsyncWithHttpInfo($limit, $offset, $search, $sort, $tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6036,15 +6039,16 @@ class VideosApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string[] $tags Keywords search in all indexed fields (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVideos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVideosAsyncWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getVideos'][0])
+    public function getVideosAsyncWithHttpInfo($limit = null, $offset = null, $search = null, $sort = null, $tags = null, string $contentType = self::contentTypes['getVideos'][0])
     {
         $returnType = '\Api42Vb\Client\Model\VideoList';
-        $request = $this->getVideosRequest($limit, $offset, $search, $sort, $contentType);
+        $request = $this->getVideosRequest($limit, $offset, $search, $sort, $tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6089,12 +6093,13 @@ class VideosApi
      * @param  int $offset offset for pagination (optional)
      * @param  string $search Keywords search in all indexed fields (optional)
      * @param  string $sort Sorting results (optional)
+     * @param  string[] $tags Keywords search in all indexed fields (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVideos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVideosRequest($limit = null, $offset = null, $search = null, $sort = null, string $contentType = self::contentTypes['getVideos'][0])
+    public function getVideosRequest($limit = null, $offset = null, $search = null, $sort = null, $tags = null, string $contentType = self::contentTypes['getVideos'][0])
     {
 
         if ($limit !== null && $limit > 1000) {
@@ -6104,6 +6109,7 @@ class VideosApi
             throw new \InvalidArgumentException('invalid value for "$limit" when calling VideosApi.getVideos, must be bigger than or equal to 1.');
         }
         
+
 
 
 
@@ -6147,6 +6153,15 @@ class VideosApi
             $sort,
             'sort', // param base name
             'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tags,
+            'tags', // param base name
+            'array', // openApiType
             'form', // style
             true, // explode
             false // required

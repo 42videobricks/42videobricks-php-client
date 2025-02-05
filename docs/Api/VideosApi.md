@@ -1114,7 +1114,7 @@ try {
 ## `getVideos()`
 
 ```php
-getVideos($limit, $offset, $search, $sort): \Api42Vb\Client\Model\VideoList
+getVideos($limit, $offset, $search, $sort, $tags): \Api42Vb\Client\Model\VideoList
 ```
 
 List videos
@@ -1144,9 +1144,10 @@ $limit = 56; // int | Number of elements to return (default=10)
 $offset = 56; // int | offset for pagination
 $search = {{search}}; // string | Keywords search in all indexed fields
 $sort = ctime:asc; // string | Sorting results
+$tags = array('tags_example'); // string[] | Keywords search in all indexed fields
 
 try {
-    $result = $apiInstance->getVideos($limit, $offset, $search, $sort);
+    $result = $apiInstance->getVideos($limit, $offset, $search, $sort, $tags);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getVideos: ', $e->getMessage(), PHP_EOL;
@@ -1161,6 +1162,7 @@ try {
 | **offset** | **int**| offset for pagination | [optional] |
 | **search** | **string**| Keywords search in all indexed fields | [optional] |
 | **sort** | **string**| Sorting results | [optional] |
+| **tags** | [**string[]**](../Model/string.md)| Keywords search in all indexed fields | [optional] |
 
 ### Return type
 
