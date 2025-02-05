@@ -271,9 +271,15 @@ class Export implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const RESOLUTION_NUMBER_240 = 240;
     public const RESOLUTION_NUMBER_320 = 320;
     public const RESOLUTION_NUMBER_480 = 480;
     public const RESOLUTION_NUMBER_640 = 640;
+    public const RESOLUTION_NUMBER_720 = 720;
+    public const RESOLUTION_NUMBER_1024 = 1024;
+    public const RESOLUTION_NUMBER_1280 = 1280;
+    public const RESOLUTION_NUMBER_1920 = 1920;
+    public const RESOLUTION_NUMBER_2160 = 2160;
     public const FORMAT_GIF = 'GIF';
     public const FORMAT_BACKGROUND = 'BACKGROUND';
 
@@ -285,9 +291,15 @@ class Export implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getResolutionAllowableValues()
     {
         return [
+            self::RESOLUTION_NUMBER_240,
             self::RESOLUTION_NUMBER_320,
             self::RESOLUTION_NUMBER_480,
             self::RESOLUTION_NUMBER_640,
+            self::RESOLUTION_NUMBER_720,
+            self::RESOLUTION_NUMBER_1024,
+            self::RESOLUTION_NUMBER_1280,
+            self::RESOLUTION_NUMBER_1920,
+            self::RESOLUTION_NUMBER_2160,
         ];
     }
 
