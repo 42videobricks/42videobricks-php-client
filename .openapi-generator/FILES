@@ -116,4 +116,3 @@ src/Model/Webhook.php
 src/Model/WebhookList.php
 src/Model/WebhookProperties.php
 src/ObjectSerializer.php
-test/Api/PlayersApiTest.php
