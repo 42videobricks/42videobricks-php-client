@@ -39,7 +39,7 @@ addAttachmentByVideoId($video_id, $attachment_type, $locale, $file)
 
 Upload an attachement
 
-Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)
+Upload an attachment file and associate it with the video. - Supported attachment types: \"subtitle\" and \"caption\" (closed captions). - Supported file formats: SRT (text/plain), VTT (text/vtt).
 
 ### Example
 
@@ -106,7 +106,7 @@ addThumbnailByVideoId($video_id, $file)
 
 Upload a thumbnail
 
-Upload an image file and set it as Thumbnail to the video
+Upload an image and set it as the video’s thumbnail.
 
 ### Example
 
@@ -169,7 +169,7 @@ addVideo($video_properties): \Api42Vb\Client\Model\Video
 
 Add a new video
 
-You can create a video object by using this endpoint.  Once the video is created you can then upload the video.
+Create a new video object.  Once created, you can upload a video file to this object.
 
 ### Example
 
@@ -231,7 +231,7 @@ deleteAttachmentByVideoId($video_id, $attachment_type, $locale)
 
 Delete an attachment
 
-Delete an attachment (and the attached file)
+Remove an attachment and its associated file.
 
 ### Example
 
@@ -296,7 +296,7 @@ deleteExportToVideo($video_id, $format, $export_id)
 
 Delete an export of the video
 
-Delete an export of the video by format or export id By default the delete use LIFO pattern if the export id is empty
+Delete a video export by format or export ID. If no export ID is provided, the deletion follows the LIFO (Last In, First Out) pattern.
 
 ### Example
 
@@ -361,6 +361,8 @@ deleteLinkToVideo($video_id, $link_type)
 
 Delete a link
 
+Remove a link from the video.
+
 ### Example
 
 ```php
@@ -422,6 +424,8 @@ deleteThumbnailByVideoId($video_id)
 
 Delete a thumbnail
 
+Remove the thumbnail from the video.
+
 ### Example
 
 ```php
@@ -480,6 +484,8 @@ deleteVideoById($video_id)
 ```
 
 Delete a video
+
+Delete a specific video.
 
 ### Example
 
@@ -540,7 +546,7 @@ finalizeMultipartUploadVideoById($video_id, $video_multipart_upload_finalize)
 
 Multipart upload finalization
 
-Once video parts are uploaded, finalize the upload by requesting to transcode the file.  New video file is replacing previous video file.
+Finalize the multipart upload and request file transcoding.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -603,7 +609,7 @@ finalizeUploadVideoById($video_id)
 
 Single file upload finalization
 
-Once video file is uploaded, finalize the upload by requesting to transcode the file. Finalize apply to the last signedurl provided by the upload initialization.  New video file is replacing previous video file.
+Finalize the upload by triggering the transcoding process. Applies to the last signed URL provided.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -664,7 +670,7 @@ getAttachmentByVideoId($video_id, $attachment_type, $locale)
 
 Get the attachment
 
-Get a video attachement object
+Retrieve a specific attachment object.
 
 ### Example
 
@@ -729,7 +735,7 @@ getAttachmentFileByVideoId($video_id, $attachment_type, $locale)
 
 Get attachement file
 
-Get the attachement file Currently only text/plain files are handled.
+Retrieve the attachment file. - Only text/plain files are supported.
 
 ### Example
 
@@ -794,7 +800,7 @@ getAttachmentsByVideoId($video_id, $attachment_type, $locale, $limit, $offset): 
 
 List of attachments
 
-Return a list of attachments to a videos
+Retrieve a list of all attachments related to a video.
 
 ### Example
 
@@ -864,7 +870,7 @@ getExportToVideoById($video_id, $format, $limit, $offset): \Api42Vb\Client\Model
 
 Get the list exports of the video
 
-Get the list exports of the video
+Retrieve a list of exports associated with the video.
 
 ### Example
 
@@ -932,7 +938,7 @@ getExportUrlToVideoById($video_id, $format, $export_id)
 
 Get an url of the export of the video
 
-Url of an export of the video by format or export id By default the get url use LIFO pattern if the export id is empty
+Retrieve the URL of a video export by format or export ID. If no export ID is provided, the URL retrieval follows the LIFO pattern.
 
 ### Example
 
@@ -997,6 +1003,8 @@ getVideoById($video_id, $token): \Api42Vb\Client\Model\Video
 
 Retun a single video
 
+Retrieve details of a specific video by its ID.
+
 ### Example
 
 ```php
@@ -1059,6 +1067,8 @@ getVideoStatusById($video_id): \Api42Vb\Client\Model\VideoStatus
 
 Retun the detailed status of the video
 
+Retrieve detailed information about the video’s status.
+
 ### Example
 
 ```php
@@ -1119,7 +1129,7 @@ getVideos($limit, $offset, $search, $sort, $tags): \Api42Vb\Client\Model\VideoLi
 
 List videos
 
-Return the list of videos.  Return an empty list it there is no video to return.
+Retrieve a list of all videos.  Returns an empty list if no videos are available.
 
 ### Example
 
@@ -1189,7 +1199,7 @@ initMultipartUploadVideoById($video_id, $video_multipart_upload_init): \Api42Vb\
 
 Multipart upload intialization
 
-Get signed urls to upload a big file split in multiparts Once the video is uploaded, do not forget to call the multipart upload finalize  New video file is replacing previous video file.
+Retrieve signed URLs for uploading a large video file in multiple parts. After uploading, you must finalize the multipart upload process.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -1253,7 +1263,7 @@ initUploadVideoById($video_id): \Api42Vb\Client\Model\VideoUploadInitResponse
 
 Single file upload intialization
 
-Get a single signed url to upload a file Once the video is uploaded, do not forget to call the single upload finalize  File formats currently supported: avi, mov, mp4, mpeg, mpg, mxf, ts. New video file is replacing previous video file.
+Retrieve a signed URL for uploading a video file. After uploading, you must finalize the upload process.  Supported formats: avi, mov, mp4, mpeg, mpg, mxf, ts. Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -1315,7 +1325,7 @@ moveEnvironmentVideoById($video_id, $environment)
 
 Update environment of video
 
-Update environment of video
+Move a video to a different environment.
 
 ### Example
 
@@ -1378,7 +1388,7 @@ postExportToVideo($video_id, $format, $export_properties)
 
 Add export to the video
 
-Add export to the video
+Generate a new export of the video in a specific format.
 
 ### Example
 
@@ -1443,7 +1453,7 @@ postLinkToVideo($video_id, $link)
 
 Add link to the video
 
-Add link to the video
+Add a new link to the video.
 
 ### Example
 
@@ -1506,7 +1516,7 @@ putLinkToVideo($video_id, $link_type, $link)
 
 Update link to the video
 
-Update link to the video
+Update an existing link of the video.
 
 ### Example
 
@@ -1571,7 +1581,7 @@ updateVideoById($video_id, $video_properties)
 
 Update an existing video
 
-Update video properties  Only properties provided are updated.
+Update the properties of a video.  Only the provided properties will be updated.
 
 ### Example
 

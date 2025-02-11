@@ -142,6 +142,8 @@ getPlaylistById($playlist_id): \Api42Vb\Client\Model\Playlist
 
 Retun a single playlist
 
+Retrieve details of a specific playlist.
+
 ### Example
 
 ```php
@@ -202,7 +204,7 @@ getPlaylists($limit, $offset, $search, $sort, $children): \Api42Vb\Client\Model\
 
 List playlists
 
-Return the list of playlist.  Return an empty list it there is no playlist to return.
+Retrieve a list of all playlists.  Returns an empty list if no playlists are available.
 
 ### Example
 
@@ -272,7 +274,7 @@ updatePlaylistById($playlist_id, $playlist_properties)
 
 Update an existing playlist
 
-Update a existing playlist.
+Update an existing playlist.
 
 ### Example
 

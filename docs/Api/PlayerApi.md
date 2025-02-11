@@ -18,7 +18,7 @@ addPlayer($player_properties): \Api42Vb\Client\Model\Player
 
 Add a new player
 
-You can create a player object by using this endpoint.
+Create a new player object.
 
 ### Example
 
@@ -80,6 +80,8 @@ deletePlayers($player_id)
 
 delete players
 
+Delete a player.
+
 ### Example
 
 ```php
@@ -139,7 +141,7 @@ getPlayers($name, $sort, $limit, $offset): \Api42Vb\Client\Model\PlayerList
 
 List players
 
-Return the list of players.  Return an empty list it there is no player to return.
+Retrieve a list of all players.  Returns an empty list if no players are available.
 
 ### Example
 
@@ -206,6 +208,8 @@ updatePlayer($player_id, $player_properties): \Api42Vb\Client\Model\Player
 ```
 
 Update player
+
+Update a player.
 
 ### Example
 
