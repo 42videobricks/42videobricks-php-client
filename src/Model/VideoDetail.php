@@ -1,6 +1,6 @@
 <?php
 /**
- * VideoAssets
+ * VideoDetail
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Api42Vb\Client\ObjectSerializer;
 
 /**
- * VideoAssets Class Doc Comment
+ * VideoDetail Class Doc Comment
  *
  * @category Class
- * @description Video Assets Object
+ * @description Video Detail Object
  * @package  Api42Vb\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
+class VideoDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VideoAssets';
+    protected static $openAPIModelName = 'VideoDetail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'thumbnail' => 'string',
-        'player' => 'string',
-        'stream' => 'string',
-        'iframe' => 'string'
+        'media_tracks' => '\Api42Vb\Client\Model\MediaTracks',
+        'original_file_infos' => '\Api42Vb\Client\Model\OriginalFileInfos',
+        'quality_stream_list' => 'int[]',
+        'quality_download_infos' => '\Api42Vb\Client\Model\QualityDownloadInfos[]'
     ];
 
     /**
@@ -72,10 +72,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'thumbnail' => 'uri',
-        'player' => 'uri',
-        'stream' => 'uri',
-        'iframe' => null
+        'media_tracks' => null,
+        'original_file_infos' => null,
+        'quality_stream_list' => null,
+        'quality_download_infos' => null
     ];
 
     /**
@@ -84,10 +84,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'thumbnail' => false,
-		'player' => false,
-		'stream' => false,
-		'iframe' => false
+        'media_tracks' => false,
+		'original_file_infos' => false,
+		'quality_stream_list' => false,
+		'quality_download_infos' => false
     ];
 
     /**
@@ -176,10 +176,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'thumbnail' => 'thumbnail',
-        'player' => 'player',
-        'stream' => 'stream',
-        'iframe' => 'iframe'
+        'media_tracks' => 'mediaTracks',
+        'original_file_infos' => 'originalFileInfos',
+        'quality_stream_list' => 'qualityStreamList',
+        'quality_download_infos' => 'qualityDownloadInfos'
     ];
 
     /**
@@ -188,10 +188,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'thumbnail' => 'setThumbnail',
-        'player' => 'setPlayer',
-        'stream' => 'setStream',
-        'iframe' => 'setIframe'
+        'media_tracks' => 'setMediaTracks',
+        'original_file_infos' => 'setOriginalFileInfos',
+        'quality_stream_list' => 'setQualityStreamList',
+        'quality_download_infos' => 'setQualityDownloadInfos'
     ];
 
     /**
@@ -200,10 +200,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'thumbnail' => 'getThumbnail',
-        'player' => 'getPlayer',
-        'stream' => 'getStream',
-        'iframe' => 'getIframe'
+        'media_tracks' => 'getMediaTracks',
+        'original_file_infos' => 'getOriginalFileInfos',
+        'quality_stream_list' => 'getQualityStreamList',
+        'quality_download_infos' => 'getQualityDownloadInfos'
     ];
 
     /**
@@ -263,10 +263,10 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('thumbnail', $data ?? [], null);
-        $this->setIfExists('player', $data ?? [], null);
-        $this->setIfExists('stream', $data ?? [], null);
-        $this->setIfExists('iframe', $data ?? [], null);
+        $this->setIfExists('media_tracks', $data ?? [], null);
+        $this->setIfExists('original_file_infos', $data ?? [], null);
+        $this->setIfExists('quality_stream_list', $data ?? [], null);
+        $this->setIfExists('quality_download_infos', $data ?? [], null);
     }
 
     /**
@@ -312,109 +312,109 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets thumbnail
+     * Gets media_tracks
      *
-     * @return string|null
+     * @return \Api42Vb\Client\Model\MediaTracks|null
      */
-    public function getThumbnail()
+    public function getMediaTracks()
     {
-        return $this->container['thumbnail'];
+        return $this->container['media_tracks'];
     }
 
     /**
-     * Sets thumbnail
+     * Sets media_tracks
      *
-     * @param string|null $thumbnail Url of the video thumbnail (cann be empty ?)
+     * @param \Api42Vb\Client\Model\MediaTracks|null $media_tracks media_tracks
      *
      * @return self
      */
-    public function setThumbnail($thumbnail)
+    public function setMediaTracks($media_tracks)
     {
-        if (is_null($thumbnail)) {
-            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
+        if (is_null($media_tracks)) {
+            throw new \InvalidArgumentException('non-nullable media_tracks cannot be null');
         }
-        $this->container['thumbnail'] = $thumbnail;
+        $this->container['media_tracks'] = $media_tracks;
 
         return $this;
     }
 
     /**
-     * Gets player
+     * Gets original_file_infos
      *
-     * @return string|null
+     * @return \Api42Vb\Client\Model\OriginalFileInfos|null
      */
-    public function getPlayer()
+    public function getOriginalFileInfos()
     {
-        return $this->container['player'];
+        return $this->container['original_file_infos'];
     }
 
     /**
-     * Sets player
+     * Sets original_file_infos
      *
-     * @param string|null $player Url to the video player code
+     * @param \Api42Vb\Client\Model\OriginalFileInfos|null $original_file_infos original_file_infos
      *
      * @return self
      */
-    public function setPlayer($player)
+    public function setOriginalFileInfos($original_file_infos)
     {
-        if (is_null($player)) {
-            throw new \InvalidArgumentException('non-nullable player cannot be null');
+        if (is_null($original_file_infos)) {
+            throw new \InvalidArgumentException('non-nullable original_file_infos cannot be null');
         }
-        $this->container['player'] = $player;
+        $this->container['original_file_infos'] = $original_file_infos;
 
         return $this;
     }
 
     /**
-     * Gets stream
+     * Gets quality_stream_list
      *
-     * @return string|null
+     * @return int[]|null
      */
-    public function getStream()
+    public function getQualityStreamList()
     {
-        return $this->container['stream'];
+        return $this->container['quality_stream_list'];
     }
 
     /**
-     * Sets stream
+     * Sets quality_stream_list
      *
-     * @param string|null $stream Url to the video player stream
+     * @param int[]|null $quality_stream_list quality_stream_list
      *
      * @return self
      */
-    public function setStream($stream)
+    public function setQualityStreamList($quality_stream_list)
     {
-        if (is_null($stream)) {
-            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        if (is_null($quality_stream_list)) {
+            throw new \InvalidArgumentException('non-nullable quality_stream_list cannot be null');
         }
-        $this->container['stream'] = $stream;
+        $this->container['quality_stream_list'] = $quality_stream_list;
 
         return $this;
     }
 
     /**
-     * Gets iframe
+     * Gets quality_download_infos
      *
-     * @return string|null
+     * @return \Api42Vb\Client\Model\QualityDownloadInfos[]|null
      */
-    public function getIframe()
+    public function getQualityDownloadInfos()
     {
-        return $this->container['iframe'];
+        return $this->container['quality_download_infos'];
     }
 
     /**
-     * Sets iframe
+     * Sets quality_download_infos
      *
-     * @param string|null $iframe html code to integrate the player in an iframe
+     * @param \Api42Vb\Client\Model\QualityDownloadInfos[]|null $quality_download_infos quality_download_infos
      *
      * @return self
      */
-    public function setIframe($iframe)
+    public function setQualityDownloadInfos($quality_download_infos)
     {
-        if (is_null($iframe)) {
-            throw new \InvalidArgumentException('non-nullable iframe cannot be null');
+        if (is_null($quality_download_infos)) {
+            throw new \InvalidArgumentException('non-nullable quality_download_infos cannot be null');
         }
-        $this->container['iframe'] = $iframe;
+        $this->container['quality_download_infos'] = $quality_download_infos;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * VideoAssets
+ * MediaTracks
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Api42Vb\Client\ObjectSerializer;
 
 /**
- * VideoAssets Class Doc Comment
+ * MediaTracks Class Doc Comment
  *
  * @category Class
- * @description Video Assets Object
+ * @description MediaTrack Object
  * @package  Api42Vb\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
+class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VideoAssets';
+    protected static $openAPIModelName = 'MediaTracks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'thumbnail' => 'string',
-        'player' => 'string',
-        'stream' => 'string',
-        'iframe' => 'string'
+        'audio' => 'string[]',
+        'video' => 'string[]'
     ];
 
     /**
@@ -72,10 +70,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'thumbnail' => 'uri',
-        'player' => 'uri',
-        'stream' => 'uri',
-        'iframe' => null
+        'audio' => null,
+        'video' => null
     ];
 
     /**
@@ -84,10 +80,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'thumbnail' => false,
-		'player' => false,
-		'stream' => false,
-		'iframe' => false
+        'audio' => false,
+		'video' => false
     ];
 
     /**
@@ -176,10 +170,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'thumbnail' => 'thumbnail',
-        'player' => 'player',
-        'stream' => 'stream',
-        'iframe' => 'iframe'
+        'audio' => 'audio',
+        'video' => 'video'
     ];
 
     /**
@@ -188,10 +180,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'thumbnail' => 'setThumbnail',
-        'player' => 'setPlayer',
-        'stream' => 'setStream',
-        'iframe' => 'setIframe'
+        'audio' => 'setAudio',
+        'video' => 'setVideo'
     ];
 
     /**
@@ -200,10 +190,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'thumbnail' => 'getThumbnail',
-        'player' => 'getPlayer',
-        'stream' => 'getStream',
-        'iframe' => 'getIframe'
+        'audio' => 'getAudio',
+        'video' => 'getVideo'
     ];
 
     /**
@@ -263,10 +251,8 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('thumbnail', $data ?? [], null);
-        $this->setIfExists('player', $data ?? [], null);
-        $this->setIfExists('stream', $data ?? [], null);
-        $this->setIfExists('iframe', $data ?? [], null);
+        $this->setIfExists('audio', $data ?? [], null);
+        $this->setIfExists('video', $data ?? [], null);
     }
 
     /**
@@ -312,109 +298,55 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets thumbnail
+     * Gets audio
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getThumbnail()
+    public function getAudio()
     {
-        return $this->container['thumbnail'];
+        return $this->container['audio'];
     }
 
     /**
-     * Sets thumbnail
+     * Sets audio
      *
-     * @param string|null $thumbnail Url of the video thumbnail (cann be empty ?)
+     * @param string[]|null $audio audio
      *
      * @return self
      */
-    public function setThumbnail($thumbnail)
+    public function setAudio($audio)
     {
-        if (is_null($thumbnail)) {
-            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
+        if (is_null($audio)) {
+            throw new \InvalidArgumentException('non-nullable audio cannot be null');
         }
-        $this->container['thumbnail'] = $thumbnail;
+        $this->container['audio'] = $audio;
 
         return $this;
     }
 
     /**
-     * Gets player
+     * Gets video
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getPlayer()
+    public function getVideo()
     {
-        return $this->container['player'];
+        return $this->container['video'];
     }
 
     /**
-     * Sets player
+     * Sets video
      *
-     * @param string|null $player Url to the video player code
+     * @param string[]|null $video video
      *
      * @return self
      */
-    public function setPlayer($player)
+    public function setVideo($video)
     {
-        if (is_null($player)) {
-            throw new \InvalidArgumentException('non-nullable player cannot be null');
+        if (is_null($video)) {
+            throw new \InvalidArgumentException('non-nullable video cannot be null');
         }
-        $this->container['player'] = $player;
-
-        return $this;
-    }
-
-    /**
-     * Gets stream
-     *
-     * @return string|null
-     */
-    public function getStream()
-    {
-        return $this->container['stream'];
-    }
-
-    /**
-     * Sets stream
-     *
-     * @param string|null $stream Url to the video player stream
-     *
-     * @return self
-     */
-    public function setStream($stream)
-    {
-        if (is_null($stream)) {
-            throw new \InvalidArgumentException('non-nullable stream cannot be null');
-        }
-        $this->container['stream'] = $stream;
-
-        return $this;
-    }
-
-    /**
-     * Gets iframe
-     *
-     * @return string|null
-     */
-    public function getIframe()
-    {
-        return $this->container['iframe'];
-    }
-
-    /**
-     * Sets iframe
-     *
-     * @param string|null $iframe html code to integrate the player in an iframe
-     *
-     * @return self
-     */
-    public function setIframe($iframe)
-    {
-        if (is_null($iframe)) {
-            throw new \InvalidArgumentException('non-nullable iframe cannot be null');
-        }
-        $this->container['iframe'] = $iframe;
+        $this->container['video'] = $video;
 
         return $this;
     }

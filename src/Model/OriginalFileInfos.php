@@ -1,6 +1,6 @@
 <?php
 /**
- * VideoAssets
+ * OriginalFileInfos
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Api42Vb\Client\ObjectSerializer;
 
 /**
- * VideoAssets Class Doc Comment
+ * OriginalFileInfos Class Doc Comment
  *
  * @category Class
- * @description Video Assets Object
+ * @description Original File Infos Object
  * @package  Api42Vb\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
+class OriginalFileInfos implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VideoAssets';
+    protected static $openAPIModelName = 'OriginalFileInfos';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'thumbnail' => 'string',
-        'player' => 'string',
-        'stream' => 'string',
-        'iframe' => 'string'
+        'size' => 'int',
+        'interlaced' => 'bool',
+        'duration' => 'int'
     ];
 
     /**
@@ -72,10 +71,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'thumbnail' => 'uri',
-        'player' => 'uri',
-        'stream' => 'uri',
-        'iframe' => null
+        'size' => null,
+        'interlaced' => null,
+        'duration' => null
     ];
 
     /**
@@ -84,10 +82,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'thumbnail' => false,
-		'player' => false,
-		'stream' => false,
-		'iframe' => false
+        'size' => true,
+		'interlaced' => false,
+		'duration' => false
     ];
 
     /**
@@ -176,10 +173,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'thumbnail' => 'thumbnail',
-        'player' => 'player',
-        'stream' => 'stream',
-        'iframe' => 'iframe'
+        'size' => 'size',
+        'interlaced' => 'interlaced',
+        'duration' => 'duration'
     ];
 
     /**
@@ -188,10 +184,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'thumbnail' => 'setThumbnail',
-        'player' => 'setPlayer',
-        'stream' => 'setStream',
-        'iframe' => 'setIframe'
+        'size' => 'setSize',
+        'interlaced' => 'setInterlaced',
+        'duration' => 'setDuration'
     ];
 
     /**
@@ -200,10 +195,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'thumbnail' => 'getThumbnail',
-        'player' => 'getPlayer',
-        'stream' => 'getStream',
-        'iframe' => 'getIframe'
+        'size' => 'getSize',
+        'interlaced' => 'getInterlaced',
+        'duration' => 'getDuration'
     ];
 
     /**
@@ -263,10 +257,9 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('thumbnail', $data ?? [], null);
-        $this->setIfExists('player', $data ?? [], null);
-        $this->setIfExists('stream', $data ?? [], null);
-        $this->setIfExists('iframe', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], null);
+        $this->setIfExists('interlaced', $data ?? [], false);
+        $this->setIfExists('duration', $data ?? [], 0);
     }
 
     /**
@@ -312,109 +305,89 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets thumbnail
+     * Gets size
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getThumbnail()
+    public function getSize()
     {
-        return $this->container['thumbnail'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets thumbnail
+     * Sets size
      *
-     * @param string|null $thumbnail Url of the video thumbnail (cann be empty ?)
+     * @param int|null $size The size of the media.
      *
      * @return self
      */
-    public function setThumbnail($thumbnail)
+    public function setSize($size)
     {
-        if (is_null($thumbnail)) {
-            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
+        if (is_null($size)) {
+            array_push($this->openAPINullablesSetToNull, 'size');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('size', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['thumbnail'] = $thumbnail;
+        $this->container['size'] = $size;
 
         return $this;
     }
 
     /**
-     * Gets player
+     * Gets interlaced
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getPlayer()
+    public function getInterlaced()
     {
-        return $this->container['player'];
+        return $this->container['interlaced'];
     }
 
     /**
-     * Sets player
+     * Sets interlaced
      *
-     * @param string|null $player Url to the video player code
+     * @param bool|null $interlaced Indicates if the media is interlaced.
      *
      * @return self
      */
-    public function setPlayer($player)
+    public function setInterlaced($interlaced)
     {
-        if (is_null($player)) {
-            throw new \InvalidArgumentException('non-nullable player cannot be null');
+        if (is_null($interlaced)) {
+            throw new \InvalidArgumentException('non-nullable interlaced cannot be null');
         }
-        $this->container['player'] = $player;
+        $this->container['interlaced'] = $interlaced;
 
         return $this;
     }
 
     /**
-     * Gets stream
+     * Gets duration
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getStream()
+    public function getDuration()
     {
-        return $this->container['stream'];
+        return $this->container['duration'];
     }
 
     /**
-     * Sets stream
+     * Sets duration
      *
-     * @param string|null $stream Url to the video player stream
+     * @param int|null $duration The duration of the media in seconds.
      *
      * @return self
      */
-    public function setStream($stream)
+    public function setDuration($duration)
     {
-        if (is_null($stream)) {
-            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        if (is_null($duration)) {
+            throw new \InvalidArgumentException('non-nullable duration cannot be null');
         }
-        $this->container['stream'] = $stream;
-
-        return $this;
-    }
-
-    /**
-     * Gets iframe
-     *
-     * @return string|null
-     */
-    public function getIframe()
-    {
-        return $this->container['iframe'];
-    }
-
-    /**
-     * Sets iframe
-     *
-     * @param string|null $iframe html code to integrate the player in an iframe
-     *
-     * @return self
-     */
-    public function setIframe($iframe)
-    {
-        if (is_null($iframe)) {
-            throw new \InvalidArgumentException('non-nullable iframe cannot be null');
-        }
-        $this->container['iframe'] = $iframe;
+        $this->container['duration'] = $duration;
 
         return $this;
     }

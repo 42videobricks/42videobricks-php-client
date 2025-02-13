@@ -17,6 +17,7 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**getAttachmentByVideoId()**](VideosApi.md#getAttachmentByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale} | Get the attachment |
 | [**getAttachmentFileByVideoId()**](VideosApi.md#getAttachmentFileByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file |
 | [**getAttachmentsByVideoId()**](VideosApi.md#getAttachmentsByVideoId) | **GET** /videos/{videoId}/attachments | List of attachments |
+| [**getDetailToVideoById()**](VideosApi.md#getDetailToVideoById) | **GET** /videos/{videoId}/detail | Get the detail of metadatas |
 | [**getExportToVideoById()**](VideosApi.md#getExportToVideoById) | **GET** /videos/{videoId}/exports | Get the list exports of the video |
 | [**getExportUrlToVideoById()**](VideosApi.md#getExportUrlToVideoById) | **GET** /videos/{videoId}/exports/{format} | Get an url of the export of the video |
 | [**getVideoById()**](VideosApi.md#getVideoById) | **GET** /videos/{videoId} | Retun a single video |
@@ -848,6 +849,68 @@ try {
 ### Return type
 
 [**\Api42Vb\Client\Model\VideoAttachmentList**](../Model/VideoAttachmentList.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDetailToVideoById()`
+
+```php
+getDetailToVideoById($video_id): \Api42Vb\Client\Model\VideoDetail
+```
+
+Get the detail of metadatas
+
+Get the detail of metadatas
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+
+try {
+    $result = $apiInstance->getDetailToVideoById($video_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->getDetailToVideoById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+
+### Return type
+
+[**\Api42Vb\Client\Model\VideoDetail**](../Model/VideoDetail.md)
 
 ### Authorization
 

@@ -26,6 +26,8 @@ docs/Model/LiveAllOfAssets.md
 docs/Model/LiveList.md
 docs/Model/LiveProperties.md
 docs/Model/LiveStatus.md
+docs/Model/MediaTracks.md
+docs/Model/OriginalFileInfos.md
 docs/Model/Pagination.md
 docs/Model/Player.md
 docs/Model/PlayerConfig.md
@@ -37,6 +39,7 @@ docs/Model/Playlist.md
 docs/Model/PlaylistAssets.md
 docs/Model/PlaylistList.md
 docs/Model/PlaylistProperties.md
+docs/Model/QualityDownloadInfos.md
 docs/Model/Scene.md
 docs/Model/Slate.md
 docs/Model/TagList.md
@@ -44,6 +47,7 @@ docs/Model/Video.md
 docs/Model/VideoAssets.md
 docs/Model/VideoAttachment.md
 docs/Model/VideoAttachmentList.md
+docs/Model/VideoDetail.md
 docs/Model/VideoList.md
 docs/Model/VideoMultipartUploadFinalize.md
 docs/Model/VideoMultipartUploadFinalizePartsInner.md
@@ -84,7 +88,9 @@ src/Model/LiveAllOfAssets.php
 src/Model/LiveList.php
 src/Model/LiveProperties.php
 src/Model/LiveStatus.php
+src/Model/MediaTracks.php
 src/Model/ModelInterface.php
+src/Model/OriginalFileInfos.php
 src/Model/Pagination.php
 src/Model/Player.php
 src/Model/PlayerConfig.php
@@ -96,6 +102,7 @@ src/Model/Playlist.php
 src/Model/PlaylistAssets.php
 src/Model/PlaylistList.php
 src/Model/PlaylistProperties.php
+src/Model/QualityDownloadInfos.php
 src/Model/Scene.php
 src/Model/Slate.php
 src/Model/TagList.php
@@ -103,6 +110,7 @@ src/Model/Video.php
 src/Model/VideoAssets.php
 src/Model/VideoAttachment.php
 src/Model/VideoAttachmentList.php
+src/Model/VideoDetail.php
 src/Model/VideoList.php
 src/Model/VideoMultipartUploadFinalize.php
 src/Model/VideoMultipartUploadFinalizePartsInner.php
@@ -116,3 +124,7 @@ src/Model/Webhook.php
 src/Model/WebhookList.php
 src/Model/WebhookProperties.php
 src/ObjectSerializer.php
+test/Model/MediaTracksTest.php
+test/Model/OriginalFileInfosTest.php
+test/Model/QualityDownloadInfosTest.php
+test/Model/VideoDetailTest.php

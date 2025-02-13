@@ -1,6 +1,6 @@
 <?php
 /**
- * VideoAssets
+ * QualityDownloadInfos
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Api42Vb\Client\ObjectSerializer;
 
 /**
- * VideoAssets Class Doc Comment
+ * QualityDownloadInfos Class Doc Comment
  *
  * @category Class
- * @description Video Assets Object
+ * @description Quality Download Infos Object
  * @package  Api42Vb\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
+class QualityDownloadInfos implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VideoAssets';
+    protected static $openAPIModelName = 'QualityDownloadInfos';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'thumbnail' => 'string',
-        'player' => 'string',
-        'stream' => 'string',
-        'iframe' => 'string'
+        'audio_bit_rate_kbps' => 'int',
+        'frame_height' => 'int',
+        'frame_width' => 'int',
+        'video_bit_rate_kbps' => 'int',
+        'profile' => 'int'
     ];
 
     /**
@@ -72,10 +73,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'thumbnail' => 'uri',
-        'player' => 'uri',
-        'stream' => 'uri',
-        'iframe' => null
+        'audio_bit_rate_kbps' => null,
+        'frame_height' => null,
+        'frame_width' => null,
+        'video_bit_rate_kbps' => null,
+        'profile' => null
     ];
 
     /**
@@ -84,10 +86,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'thumbnail' => false,
-		'player' => false,
-		'stream' => false,
-		'iframe' => false
+        'audio_bit_rate_kbps' => false,
+		'frame_height' => true,
+		'frame_width' => true,
+		'video_bit_rate_kbps' => false,
+		'profile' => true
     ];
 
     /**
@@ -176,10 +179,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'thumbnail' => 'thumbnail',
-        'player' => 'player',
-        'stream' => 'stream',
-        'iframe' => 'iframe'
+        'audio_bit_rate_kbps' => 'audioBitRateKbps',
+        'frame_height' => 'frameHeight',
+        'frame_width' => 'frameWidth',
+        'video_bit_rate_kbps' => 'videoBitRateKbps',
+        'profile' => 'profile'
     ];
 
     /**
@@ -188,10 +192,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'thumbnail' => 'setThumbnail',
-        'player' => 'setPlayer',
-        'stream' => 'setStream',
-        'iframe' => 'setIframe'
+        'audio_bit_rate_kbps' => 'setAudioBitRateKbps',
+        'frame_height' => 'setFrameHeight',
+        'frame_width' => 'setFrameWidth',
+        'video_bit_rate_kbps' => 'setVideoBitRateKbps',
+        'profile' => 'setProfile'
     ];
 
     /**
@@ -200,10 +205,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'thumbnail' => 'getThumbnail',
-        'player' => 'getPlayer',
-        'stream' => 'getStream',
-        'iframe' => 'getIframe'
+        'audio_bit_rate_kbps' => 'getAudioBitRateKbps',
+        'frame_height' => 'getFrameHeight',
+        'frame_width' => 'getFrameWidth',
+        'video_bit_rate_kbps' => 'getVideoBitRateKbps',
+        'profile' => 'getProfile'
     ];
 
     /**
@@ -263,10 +269,11 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('thumbnail', $data ?? [], null);
-        $this->setIfExists('player', $data ?? [], null);
-        $this->setIfExists('stream', $data ?? [], null);
-        $this->setIfExists('iframe', $data ?? [], null);
+        $this->setIfExists('audio_bit_rate_kbps', $data ?? [], 0);
+        $this->setIfExists('frame_height', $data ?? [], null);
+        $this->setIfExists('frame_width', $data ?? [], null);
+        $this->setIfExists('video_bit_rate_kbps', $data ?? [], 0);
+        $this->setIfExists('profile', $data ?? [], null);
     }
 
     /**
@@ -312,109 +319,157 @@ class VideoAssets implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets thumbnail
+     * Gets audio_bit_rate_kbps
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getThumbnail()
+    public function getAudioBitRateKbps()
     {
-        return $this->container['thumbnail'];
+        return $this->container['audio_bit_rate_kbps'];
     }
 
     /**
-     * Sets thumbnail
+     * Sets audio_bit_rate_kbps
      *
-     * @param string|null $thumbnail Url of the video thumbnail (cann be empty ?)
+     * @param int|null $audio_bit_rate_kbps The audio bit rate in kilobits per second.
      *
      * @return self
      */
-    public function setThumbnail($thumbnail)
+    public function setAudioBitRateKbps($audio_bit_rate_kbps)
     {
-        if (is_null($thumbnail)) {
-            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
+        if (is_null($audio_bit_rate_kbps)) {
+            throw new \InvalidArgumentException('non-nullable audio_bit_rate_kbps cannot be null');
         }
-        $this->container['thumbnail'] = $thumbnail;
+        $this->container['audio_bit_rate_kbps'] = $audio_bit_rate_kbps;
 
         return $this;
     }
 
     /**
-     * Gets player
+     * Gets frame_height
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getPlayer()
+    public function getFrameHeight()
     {
-        return $this->container['player'];
+        return $this->container['frame_height'];
     }
 
     /**
-     * Sets player
+     * Sets frame_height
      *
-     * @param string|null $player Url to the video player code
+     * @param int|null $frame_height The height of the video frame.
      *
      * @return self
      */
-    public function setPlayer($player)
+    public function setFrameHeight($frame_height)
     {
-        if (is_null($player)) {
-            throw new \InvalidArgumentException('non-nullable player cannot be null');
+        if (is_null($frame_height)) {
+            array_push($this->openAPINullablesSetToNull, 'frame_height');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('frame_height', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['player'] = $player;
+        $this->container['frame_height'] = $frame_height;
 
         return $this;
     }
 
     /**
-     * Gets stream
+     * Gets frame_width
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getStream()
+    public function getFrameWidth()
     {
-        return $this->container['stream'];
+        return $this->container['frame_width'];
     }
 
     /**
-     * Sets stream
+     * Sets frame_width
      *
-     * @param string|null $stream Url to the video player stream
+     * @param int|null $frame_width The width of the video frame.
      *
      * @return self
      */
-    public function setStream($stream)
+    public function setFrameWidth($frame_width)
     {
-        if (is_null($stream)) {
-            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        if (is_null($frame_width)) {
+            array_push($this->openAPINullablesSetToNull, 'frame_width');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('frame_width', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['stream'] = $stream;
+        $this->container['frame_width'] = $frame_width;
 
         return $this;
     }
 
     /**
-     * Gets iframe
+     * Gets video_bit_rate_kbps
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getIframe()
+    public function getVideoBitRateKbps()
     {
-        return $this->container['iframe'];
+        return $this->container['video_bit_rate_kbps'];
     }
 
     /**
-     * Sets iframe
+     * Sets video_bit_rate_kbps
      *
-     * @param string|null $iframe html code to integrate the player in an iframe
+     * @param int|null $video_bit_rate_kbps The video bit rate in kilobits per second.
      *
      * @return self
      */
-    public function setIframe($iframe)
+    public function setVideoBitRateKbps($video_bit_rate_kbps)
     {
-        if (is_null($iframe)) {
-            throw new \InvalidArgumentException('non-nullable iframe cannot be null');
+        if (is_null($video_bit_rate_kbps)) {
+            throw new \InvalidArgumentException('non-nullable video_bit_rate_kbps cannot be null');
         }
-        $this->container['iframe'] = $iframe;
+        $this->container['video_bit_rate_kbps'] = $video_bit_rate_kbps;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile
+     *
+     * @return int|null
+     */
+    public function getProfile()
+    {
+        return $this->container['profile'];
+    }
+
+    /**
+     * Sets profile
+     *
+     * @param int|null $profile The profile setting for the video.
+     *
+     * @return self
+     */
+    public function setProfile($profile)
+    {
+        if (is_null($profile)) {
+            array_push($this->openAPINullablesSetToNull, 'profile');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('profile', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['profile'] = $profile;
 
         return $this;
     }
