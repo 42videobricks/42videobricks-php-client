@@ -33,6 +33,7 @@ docs/Model/Player.md
 docs/Model/PlayerConfig.md
 docs/Model/PlayerConfigColors.md
 docs/Model/PlayerConfigControls.md
+docs/Model/PlayerConfigLogo.md
 docs/Model/PlayerList.md
 docs/Model/PlayerProperties.md
 docs/Model/Playlist.md
@@ -96,6 +97,7 @@ src/Model/Player.php
 src/Model/PlayerConfig.php
 src/Model/PlayerConfigColors.php
 src/Model/PlayerConfigControls.php
+src/Model/PlayerConfigLogo.php
 src/Model/PlayerList.php
 src/Model/PlayerProperties.php
 src/Model/Playlist.php
@@ -124,7 +126,4 @@ src/Model/Webhook.php
 src/Model/WebhookList.php
 src/Model/WebhookProperties.php
 src/ObjectSerializer.php
-test/Model/MediaTracksTest.php
-test/Model/OriginalFileInfosTest.php
-test/Model/QualityDownloadInfosTest.php
-test/Model/VideoDetailTest.php
+test/Model/PlayerConfigLogoTest.php
