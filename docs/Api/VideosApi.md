@@ -666,7 +666,7 @@ void (empty response body)
 ## `getAttachmentByVideoId()`
 
 ```php
-getAttachmentByVideoId($video_id, $attachment_type, $locale)
+getAttachmentByVideoId($video_id, $attachment_type, $locale): \Api42Vb\Client\Model\Attachment
 ```
 
 Get the attachment
@@ -697,7 +697,8 @@ $attachment_type = {{attachmentType}}; // string | Type of attachment
 $locale = {{locale}}; // string | Le locale value of the attachment
 
 try {
-    $apiInstance->getAttachmentByVideoId($video_id, $attachment_type, $locale);
+    $result = $apiInstance->getAttachmentByVideoId($video_id, $attachment_type, $locale);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getAttachmentByVideoId: ', $e->getMessage(), PHP_EOL;
 }
@@ -713,7 +714,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Api42Vb\Client\Model\Attachment**](../Model/Attachment.md)
 
 ### Authorization
 
