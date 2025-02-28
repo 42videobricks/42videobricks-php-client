@@ -35,7 +35,7 @@ use \Api42Vb\Client\ObjectSerializer;
  * Attachment Class Doc Comment
  *
  * @category Class
- * @description Attachement type
+ * @description Attachement File Object
  * @package  Api42Vb\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

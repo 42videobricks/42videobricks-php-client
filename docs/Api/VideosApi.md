@@ -732,7 +732,7 @@ try {
 ## `getAttachmentFileByVideoId()`
 
 ```php
-getAttachmentFileByVideoId($video_id, $attachment_type, $locale)
+getAttachmentFileByVideoId($video_id, $attachment_type, $locale): string
 ```
 
 Get attachement file
@@ -763,7 +763,8 @@ $attachment_type = {{attachmentType}}; // string | Type of attachment
 $locale = {{locale}}; // string | Le locale value of the attachment
 
 try {
-    $apiInstance->getAttachmentFileByVideoId($video_id, $attachment_type, $locale);
+    $result = $apiInstance->getAttachmentFileByVideoId($video_id, $attachment_type, $locale);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getAttachmentFileByVideoId: ', $e->getMessage(), PHP_EOL;
 }
@@ -779,7 +780,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -788,7 +789,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -997,7 +998,7 @@ try {
 ## `getExportUrlToVideoById()`
 
 ```php
-getExportUrlToVideoById($video_id, $format, $export_id)
+getExportUrlToVideoById($video_id, $format, $export_id): string
 ```
 
 Get an url of the export of the video
@@ -1028,7 +1029,8 @@ $format = GIF; // string | The format to export - GIF : animated image file - BA
 $export_id = 56; // int | exportId
 
 try {
-    $apiInstance->getExportUrlToVideoById($video_id, $format, $export_id);
+    $result = $apiInstance->getExportUrlToVideoById($video_id, $format, $export_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getExportUrlToVideoById: ', $e->getMessage(), PHP_EOL;
 }
@@ -1044,7 +1046,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -1053,7 +1055,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

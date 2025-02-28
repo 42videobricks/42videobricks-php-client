@@ -38,7 +38,7 @@ $apiLiveInstance = new Api42Vb\Client\Api\LivesApi(
     $config
 );
 
-var_export($apiInstance->getAttachmentByVideoId($product, "chapter", "en-GB"));
+var_export($apiInstance->getExportUrlToVideoById('UUxTM2dyNEgvNStYT2xMKw==', 'BACKGROUND', 36374981));
 
 //$apiInstance->postExportToVideo($product,"GIF", new \Api42Vb\Client\Model\ExportProperties(["resolution"=>640]));
 //var_export($apiInstance->getExportToVideoById($product,"GIF"));
