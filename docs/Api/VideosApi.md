@@ -17,6 +17,7 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**getAttachmentByVideoId()**](VideosApi.md#getAttachmentByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale} | Get the attachment |
 | [**getAttachmentFileByVideoId()**](VideosApi.md#getAttachmentFileByVideoId) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file |
 | [**getAttachmentsByVideoId()**](VideosApi.md#getAttachmentsByVideoId) | **GET** /videos/{videoId}/attachments | List of attachments |
+| [**getDetailToVideoById()**](VideosApi.md#getDetailToVideoById) | **GET** /videos/{videoId}/detail | Get the detail of metadatas |
 | [**getExportToVideoById()**](VideosApi.md#getExportToVideoById) | **GET** /videos/{videoId}/exports | Get the list exports of the video |
 | [**getExportUrlToVideoById()**](VideosApi.md#getExportUrlToVideoById) | **GET** /videos/{videoId}/exports/{format} | Get an url of the export of the video |
 | [**getVideoById()**](VideosApi.md#getVideoById) | **GET** /videos/{videoId} | Retun a single video |
@@ -39,7 +40,7 @@ addAttachmentByVideoId($video_id, $attachment_type, $locale, $file)
 
 Upload an attachement
 
-Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)
+Upload an attachment file and associate it with the video. - Supported attachment types: \"subtitle\" and \"caption\" (closed captions). - Supported file formats: SRT (text/plain), VTT (text/vtt).
 
 ### Example
 
@@ -106,7 +107,7 @@ addThumbnailByVideoId($video_id, $file)
 
 Upload a thumbnail
 
-Upload an image file and set it as Thumbnail to the video
+Upload an image and set it as the video’s thumbnail.
 
 ### Example
 
@@ -169,7 +170,7 @@ addVideo($video_properties): \Api42Vb\Client\Model\Video
 
 Add a new video
 
-You can create a video object by using this endpoint.  Once the video is created you can then upload the video.
+Create a new video object.  Once created, you can upload a video file to this object.
 
 ### Example
 
@@ -231,7 +232,7 @@ deleteAttachmentByVideoId($video_id, $attachment_type, $locale)
 
 Delete an attachment
 
-Delete an attachment (and the attached file)
+Remove an attachment and its associated file.
 
 ### Example
 
@@ -296,7 +297,7 @@ deleteExportToVideo($video_id, $format, $export_id)
 
 Delete an export of the video
 
-Delete an export of the video by format or export id By default the delete use LIFO pattern if the export id is empty
+Delete a video export by format or export ID. If no export ID is provided, the deletion follows the LIFO (Last In, First Out) pattern.
 
 ### Example
 
@@ -361,6 +362,8 @@ deleteLinkToVideo($video_id, $link_type)
 
 Delete a link
 
+Remove a link from the video.
+
 ### Example
 
 ```php
@@ -422,6 +425,8 @@ deleteThumbnailByVideoId($video_id)
 
 Delete a thumbnail
 
+Remove the thumbnail from the video.
+
 ### Example
 
 ```php
@@ -480,6 +485,8 @@ deleteVideoById($video_id)
 ```
 
 Delete a video
+
+Delete a specific video.
 
 ### Example
 
@@ -540,7 +547,7 @@ finalizeMultipartUploadVideoById($video_id, $video_multipart_upload_finalize)
 
 Multipart upload finalization
 
-Once video parts are uploaded, finalize the upload by requesting to transcode the file.  New video file is replacing previous video file.
+Finalize the multipart upload and request file transcoding.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -603,7 +610,7 @@ finalizeUploadVideoById($video_id)
 
 Single file upload finalization
 
-Once video file is uploaded, finalize the upload by requesting to transcode the file. Finalize apply to the last signedurl provided by the upload initialization.  New video file is replacing previous video file.
+Finalize the upload by triggering the transcoding process. Applies to the last signed URL provided.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -659,12 +666,12 @@ void (empty response body)
 ## `getAttachmentByVideoId()`
 
 ```php
-getAttachmentByVideoId($video_id, $attachment_type, $locale)
+getAttachmentByVideoId($video_id, $attachment_type, $locale): \Api42Vb\Client\Model\Attachment
 ```
 
 Get the attachment
 
-Get a video attachement object
+Retrieve a specific attachment object.
 
 ### Example
 
@@ -690,7 +697,8 @@ $attachment_type = {{attachmentType}}; // string | Type of attachment
 $locale = {{locale}}; // string | Le locale value of the attachment
 
 try {
-    $apiInstance->getAttachmentByVideoId($video_id, $attachment_type, $locale);
+    $result = $apiInstance->getAttachmentByVideoId($video_id, $attachment_type, $locale);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getAttachmentByVideoId: ', $e->getMessage(), PHP_EOL;
 }
@@ -706,7 +714,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Api42Vb\Client\Model\Attachment**](../Model/Attachment.md)
 
 ### Authorization
 
@@ -724,12 +732,12 @@ void (empty response body)
 ## `getAttachmentFileByVideoId()`
 
 ```php
-getAttachmentFileByVideoId($video_id, $attachment_type, $locale)
+getAttachmentFileByVideoId($video_id, $attachment_type, $locale): string
 ```
 
 Get attachement file
 
-Get the attachement file Currently only text/plain files are handled.
+Retrieve the attachment file. - Only text/plain files are supported.
 
 ### Example
 
@@ -755,7 +763,8 @@ $attachment_type = {{attachmentType}}; // string | Type of attachment
 $locale = {{locale}}; // string | Le locale value of the attachment
 
 try {
-    $apiInstance->getAttachmentFileByVideoId($video_id, $attachment_type, $locale);
+    $result = $apiInstance->getAttachmentFileByVideoId($video_id, $attachment_type, $locale);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getAttachmentFileByVideoId: ', $e->getMessage(), PHP_EOL;
 }
@@ -771,7 +780,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -780,7 +789,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -794,7 +803,7 @@ getAttachmentsByVideoId($video_id, $attachment_type, $locale, $limit, $offset): 
 
 List of attachments
 
-Return a list of attachments to a videos
+Retrieve a list of all attachments related to a video.
 
 ### Example
 
@@ -856,6 +865,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getDetailToVideoById()`
+
+```php
+getDetailToVideoById($video_id): \Api42Vb\Client\Model\VideoDetail
+```
+
+Get the detail of metadatas
+
+Get the detail of metadatas
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\VideosApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$video_id = {{videoId}}; // string | Id of the video
+
+try {
+    $result = $apiInstance->getDetailToVideoById($video_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VideosApi->getDetailToVideoById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **video_id** | **string**| Id of the video | |
+
+### Return type
+
+[**\Api42Vb\Client\Model\VideoDetail**](../Model/VideoDetail.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getExportToVideoById()`
 
 ```php
@@ -864,7 +935,7 @@ getExportToVideoById($video_id, $format, $limit, $offset): \Api42Vb\Client\Model
 
 Get the list exports of the video
 
-Get the list exports of the video
+Retrieve a list of exports associated with the video.
 
 ### Example
 
@@ -927,12 +998,12 @@ try {
 ## `getExportUrlToVideoById()`
 
 ```php
-getExportUrlToVideoById($video_id, $format, $export_id)
+getExportUrlToVideoById($video_id, $format, $export_id): string
 ```
 
 Get an url of the export of the video
 
-Url of an export of the video by format or export id By default the get url use LIFO pattern if the export id is empty
+Retrieve the URL of a video export by format or export ID. If no export ID is provided, the URL retrieval follows the LIFO pattern.
 
 ### Example
 
@@ -958,7 +1029,8 @@ $format = GIF; // string | The format to export - GIF : animated image file - BA
 $export_id = 56; // int | exportId
 
 try {
-    $apiInstance->getExportUrlToVideoById($video_id, $format, $export_id);
+    $result = $apiInstance->getExportUrlToVideoById($video_id, $format, $export_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getExportUrlToVideoById: ', $e->getMessage(), PHP_EOL;
 }
@@ -974,7 +1046,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -983,7 +1055,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -996,6 +1068,8 @@ getVideoById($video_id, $token): \Api42Vb\Client\Model\Video
 ```
 
 Retun a single video
+
+Retrieve details of a specific video by its ID.
 
 ### Example
 
@@ -1059,6 +1133,8 @@ getVideoStatusById($video_id): \Api42Vb\Client\Model\VideoStatus
 
 Retun the detailed status of the video
 
+Retrieve detailed information about the video’s status.
+
 ### Example
 
 ```php
@@ -1114,12 +1190,12 @@ try {
 ## `getVideos()`
 
 ```php
-getVideos($limit, $offset, $search, $sort): \Api42Vb\Client\Model\VideoList
+getVideos($limit, $offset, $search, $sort, $tags): \Api42Vb\Client\Model\VideoList
 ```
 
 List videos
 
-Return the list of videos.  Return an empty list it there is no video to return.
+Retrieve a list of all videos.  Returns an empty list if no videos are available.
 
 ### Example
 
@@ -1144,9 +1220,10 @@ $limit = 56; // int | Number of elements to return (default=10)
 $offset = 56; // int | offset for pagination
 $search = {{search}}; // string | Keywords search in all indexed fields
 $sort = ctime:asc; // string | Sorting results
+$tags = array('tags_example'); // string[] | Keywords search in all indexed fields
 
 try {
-    $result = $apiInstance->getVideos($limit, $offset, $search, $sort);
+    $result = $apiInstance->getVideos($limit, $offset, $search, $sort, $tags);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VideosApi->getVideos: ', $e->getMessage(), PHP_EOL;
@@ -1161,6 +1238,7 @@ try {
 | **offset** | **int**| offset for pagination | [optional] |
 | **search** | **string**| Keywords search in all indexed fields | [optional] |
 | **sort** | **string**| Sorting results | [optional] |
+| **tags** | [**string[]**](../Model/string.md)| Keywords search in all indexed fields | [optional] |
 
 ### Return type
 
@@ -1187,7 +1265,7 @@ initMultipartUploadVideoById($video_id, $video_multipart_upload_init): \Api42Vb\
 
 Multipart upload intialization
 
-Get signed urls to upload a big file split in multiparts Once the video is uploaded, do not forget to call the multipart upload finalize  New video file is replacing previous video file.
+Retrieve signed URLs for uploading a large video file in multiple parts. After uploading, you must finalize the multipart upload process.  Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -1251,7 +1329,7 @@ initUploadVideoById($video_id): \Api42Vb\Client\Model\VideoUploadInitResponse
 
 Single file upload intialization
 
-Get a single signed url to upload a file Once the video is uploaded, do not forget to call the single upload finalize  File formats currently supported: avi, mov, mp4, mpeg, mpg, mxf, ts. New video file is replacing previous video file.
+Retrieve a signed URL for uploading a video file. After uploading, you must finalize the upload process.  Supported formats: avi, mov, mp4, mpeg, mpg, mxf, ts. Uploading a new file replaces the existing one.
 
 ### Example
 
@@ -1313,7 +1391,7 @@ moveEnvironmentVideoById($video_id, $environment)
 
 Update environment of video
 
-Update environment of video
+Move a video to a different environment.
 
 ### Example
 
@@ -1376,7 +1454,7 @@ postExportToVideo($video_id, $format, $export_properties)
 
 Add export to the video
 
-Add export to the video
+Generate a new export of the video in a specific format.
 
 ### Example
 
@@ -1441,7 +1519,7 @@ postLinkToVideo($video_id, $link)
 
 Add link to the video
 
-Add link to the video
+Add a new link to the video.
 
 ### Example
 
@@ -1504,7 +1582,7 @@ putLinkToVideo($video_id, $link_type, $link)
 
 Update link to the video
 
-Update link to the video
+Update an existing link of the video.
 
 ### Example
 
@@ -1569,7 +1647,7 @@ updateVideoById($video_id, $video_properties)
 
 Update an existing video
 
-Update video properties  Only properties provided are updated.
+Update the properties of a video.  Only the provided properties will be updated.
 
 ### Example
 

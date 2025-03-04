@@ -19,7 +19,7 @@ addWebhook($webhook_properties): \Api42Vb\Client\Model\Webhook
 
 Add a new webhook
 
-Create a new webhook to configure notification.  Only one hook per url
+Create a new webhook for notifications.  Only one webhook is allowed per URL.
 
 ### Example
 
@@ -142,6 +142,8 @@ getWebhookById($webhook_id): \Api42Vb\Client\Model\Webhook
 
 Retun a single webhook
 
+Retrieve details of a specific webhook.
+
 ### Example
 
 ```php
@@ -202,7 +204,7 @@ getWebhooks($limit, $offset): \Api42Vb\Client\Model\WebhookList
 
 List webhooks
 
-Return the list of webhooks.  Return an empty list it there are no webhook to return.
+Retrieve a list of all webhooks.  Returns an empty list if no webhooks are available.
 
 ### Example
 
@@ -266,7 +268,7 @@ updateWebhookById($webhook_id, $webhook_properties): \Api42Vb\Client\Model\Webho
 
 Update an existing webhook
 
-Update a existing webhooks.
+Update an existing webhook.
 
 ### Example
 

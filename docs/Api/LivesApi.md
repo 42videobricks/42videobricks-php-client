@@ -25,7 +25,7 @@ addLive($live_properties): \Api42Vb\Client\Model\Live
 
 Create a live event
 
-Creates a new live event and returns its details. This endpoint returns the details of the created live event object.
+Create a new live event and return its details.
 
 ### Example
 
@@ -87,7 +87,7 @@ addSlateByLiveIdAndName($live_id, $slate_name, $file)
 
 Upload an image file and set it as a slate for a live event
 
-Uploads an image file and sets it as a slate for a specific live event. This endpoint returns a confirmation of the slate upload.
+Upload an image and set it as a slate for the live event.
 
 ### Example
 
@@ -152,7 +152,7 @@ addThumbnailByLiveId($live_id, $file)
 
 Upload an image file and set it as the Thumbnail for a video
 
-Uploads an image file and sets it as the Thumbnail for a specific video associated with a live event This endpoint returns a confirmation of the thumbnail upload.
+Upload an image file and set it as the live event’s thumbnail.
 
 ### Example
 
@@ -215,7 +215,7 @@ deleteLiveById($live_id)
 
 Delete a live event
 
-Deletes a specific live event based on its ID. This endpoint confirms the deletion of the live event with a 204 http code.
+Delete a specific live event. Returns a 204 HTTP response on success.
 
 ### Example
 
@@ -276,7 +276,7 @@ getLiveById($live_id): \Api42Vb\Client\Model\Live
 
 Get details of a live event
 
-Returns the detailed information of a specific live event based on its ID. This endpoint returns a live event object containing all relevant details.
+Retrieve detailed information about a specific live event.
 
 ### Example
 
@@ -338,7 +338,7 @@ getLives($limit, $offset): \Api42Vb\Client\Model\LiveList
 
 Retrieve a list of live events
 
-Fetches and returns a list of all live events available in the system. This endpoint returns an array of live event objects, each containing detailed information about the event.
+Retrieve a list of all available live events.
 
 ### Example
 
@@ -402,7 +402,7 @@ getLivesCaptureSources(): string[]
 
 Retrieve a list of capture sources
 
-Fetches and returns a list of all available capture sources. This endpoint returns an array of capture source name.
+Retrieve a list of all available capture sources.
 
 ### Example
 
@@ -461,7 +461,7 @@ getScenesByLiveId($live_id): \Api42Vb\Client\Model\GetScenesByLiveId200Response
 
 List of the scenes in the live event
 
-Contains the list of scenes present for the live event - FEED : the scene containing the main flow and its state - IN : The slate viewable before the start of the stream - OUT : The slate viewable after the end of the stream - ERROR : The slate in case of an error on the stream
+Retrieve a list of scenes available for the live event: - FEED: The main stream and its state. - IN: The slate shown before the stream starts. - OUT: The slate displayed after the stream ends. - ERROR: The slate shown in case of a streaming error.
 
 ### Example
 
@@ -586,7 +586,7 @@ updateLiveById($live_id, $live_properties)
 
 Update details of a live event
 
-Updates the details of a specific live event based on its ID. This endpoint returns an empty response with a 202 http code.
+Update the details of a specific live event. Returns a 202 HTTP response on success.
 
 ### Example
 
@@ -649,7 +649,7 @@ updateStateOfScene($live_id, $scene_name, $state)
 
 Update the state of a scene based on its id
 
-Updates the state of scenes based on the provided data. This endpoint returns a confirmation of the scene state update.
+Update the state of a scene.
 
 ### Example
 
