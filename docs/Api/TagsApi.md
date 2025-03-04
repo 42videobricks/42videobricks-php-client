@@ -15,7 +15,7 @@ getTags($limit, $offset, $partial): \Api42Vb\Client\Model\TagList
 
 List Video Tags
 
-Retrieve a list of all tags assigned to videos.
+Return the list of tags created and set to videos
 
 ### Example
 

@@ -12,6 +12,7 @@ All URIs are relative to https://api-sbx.42videobricks.com, except if the operat
 | [**getLives()**](LivesApi.md#getLives) | **GET** /lives | Retrieve a list of live events |
 | [**getLivesCaptureSources()**](LivesApi.md#getLivesCaptureSources) | **GET** /lives/captureSources | Retrieve a list of capture sources |
 | [**getScenesByLiveId()**](LivesApi.md#getScenesByLiveId) | **GET** /lives/{liveId}/scenes | List of the scenes in the live event |
+| [**startStopLiveById()**](LivesApi.md#startStopLiveById) | **PUT** /lives/{liveId}/{action} | Active a live |
 | [**updateLiveById()**](LivesApi.md#updateLiveById) | **PUT** /lives/{liveId} | Update details of a live event |
 | [**updateStateOfScene()**](LivesApi.md#updateStateOfScene) | **PUT** /lives/{liveId}/scenes/{sceneName}/{state} | Update the state of a scene based on its id |
 
@@ -24,7 +25,7 @@ addLive($live_properties): \Api42Vb\Client\Model\Live
 
 Create a live event
 
-Create a new live event and return its details.
+Creates a new live event and returns its details. This endpoint returns the details of the created live event object.
 
 ### Example
 
@@ -86,7 +87,7 @@ addSlateByLiveIdAndName($live_id, $slate_name, $file)
 
 Upload an image file and set it as a slate for a live event
 
-Upload an image and set it as a slate for the live event.
+Uploads an image file and sets it as a slate for a specific live event. This endpoint returns a confirmation of the slate upload.
 
 ### Example
 
@@ -151,7 +152,7 @@ addThumbnailByLiveId($live_id, $file)
 
 Upload an image file and set it as the Thumbnail for a video
 
-Upload an image file and set it as the live event’s thumbnail.
+Uploads an image file and sets it as the Thumbnail for a specific video associated with a live event This endpoint returns a confirmation of the thumbnail upload.
 
 ### Example
 
@@ -214,7 +215,7 @@ deleteLiveById($live_id)
 
 Delete a live event
 
-Delete a specific live event. Returns a 204 HTTP response on success.
+Deletes a specific live event based on its ID. This endpoint confirms the deletion of the live event with a 204 http code.
 
 ### Example
 
@@ -275,7 +276,7 @@ getLiveById($live_id): \Api42Vb\Client\Model\Live
 
 Get details of a live event
 
-Retrieve detailed information about a specific live event.
+Returns the detailed information of a specific live event based on its ID. This endpoint returns a live event object containing all relevant details.
 
 ### Example
 
@@ -337,7 +338,7 @@ getLives($limit, $offset): \Api42Vb\Client\Model\LiveList
 
 Retrieve a list of live events
 
-Retrieve a list of all available live events.
+Fetches and returns a list of all live events available in the system. This endpoint returns an array of live event objects, each containing detailed information about the event.
 
 ### Example
 
@@ -401,7 +402,7 @@ getLivesCaptureSources(): string[]
 
 Retrieve a list of capture sources
 
-Retrieve a list of all available capture sources.
+Fetches and returns a list of all available capture sources. This endpoint returns an array of capture source name.
 
 ### Example
 
@@ -460,7 +461,7 @@ getScenesByLiveId($live_id): \Api42Vb\Client\Model\GetScenesByLiveId200Response
 
 List of the scenes in the live event
 
-Retrieve a list of scenes available for the live event: - FEED: The main stream and its state. - IN: The slate shown before the stream starts. - OUT: The slate displayed after the stream ends. - ERROR: The slate shown in case of a streaming error.
+Contains the list of scenes present for the live event - FEED : the scene containing the main flow and its state - IN : The slate viewable before the start of the stream - OUT : The slate viewable after the end of the stream - ERROR : The slate in case of an error on the stream
 
 ### Example
 
@@ -514,6 +515,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `startStopLiveById()`
+
+```php
+startStopLiveById($live_id, $action)
+```
+
+Active a live
+
+Active a live.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Api42Vb\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new Api42Vb\Client\Api\LivesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$live_id = {{liveId}}; // string | Id of the live
+$action = {{action}}; // string | action name
+
+try {
+    $apiInstance->startStopLiveById($live_id, $action);
+} catch (Exception $e) {
+    echo 'Exception when calling LivesApi->startStopLiveById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **live_id** | **string**| Id of the live | |
+| **action** | **string**| action name | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateLiveById()`
 
 ```php
@@ -522,7 +586,7 @@ updateLiveById($live_id, $live_properties)
 
 Update details of a live event
 
-Update the details of a specific live event. Returns a 202 HTTP response on success.
+Updates the details of a specific live event based on its ID. This endpoint returns an empty response with a 202 http code.
 
 ### Example
 
@@ -585,7 +649,7 @@ updateStateOfScene($live_id, $scene_name, $state)
 
 Update the state of a scene based on its id
 
-Update the state of a scene.
+Updates the state of scenes based on the provided data. This endpoint returns a confirmation of the scene state update.
 
 ### Example
 

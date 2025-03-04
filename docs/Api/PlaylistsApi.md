@@ -142,8 +142,6 @@ getPlaylistById($playlist_id): \Api42Vb\Client\Model\Playlist
 
 Retun a single playlist
 
-Retrieve details of a specific playlist.
-
 ### Example
 
 ```php
@@ -199,12 +197,12 @@ try {
 ## `getPlaylists()`
 
 ```php
-getPlaylists($limit, $offset, $search, $sort, $children): \Api42Vb\Client\Model\PlaylistList
+getPlaylists($limit, $offset, $search, $sort): \Api42Vb\Client\Model\PlaylistList
 ```
 
 List playlists
 
-Retrieve a list of all playlists.  Returns an empty list if no playlists are available.
+Return the list of playlist.  Return an empty list it there is no playlist to return.
 
 ### Example
 
@@ -229,10 +227,9 @@ $limit = 56; // int | Number of elements to return (default=10)
 $offset = 56; // int | offset for pagination
 $search = {{search}}; // string | Keywords search in all indexed fields
 $sort = ctime:asc; // string | Sorting results
-$children = {{videoId}}; // string | videoId that the playlist must contain in children
 
 try {
-    $result = $apiInstance->getPlaylists($limit, $offset, $search, $sort, $children);
+    $result = $apiInstance->getPlaylists($limit, $offset, $search, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlaylistsApi->getPlaylists: ', $e->getMessage(), PHP_EOL;
@@ -247,7 +244,6 @@ try {
 | **offset** | **int**| offset for pagination | [optional] |
 | **search** | **string**| Keywords search in all indexed fields | [optional] |
 | **sort** | **string**| Sorting results | [optional] |
-| **children** | **string**| videoId that the playlist must contain in children | [optional] |
 
 ### Return type
 
@@ -274,7 +270,7 @@ updatePlaylistById($playlist_id, $playlist_properties)
 
 Update an existing playlist
 
-Update an existing playlist.
+Update a existing playlist.
 
 ### Example
 

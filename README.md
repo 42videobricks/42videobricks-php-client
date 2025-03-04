@@ -91,13 +91,9 @@ Class | Method | HTTP request | Description
 *LivesApi* | [**getLives**](docs/Api/LivesApi.md#getlives) | **GET** /lives | Retrieve a list of live events
 *LivesApi* | [**getLivesCaptureSources**](docs/Api/LivesApi.md#getlivescapturesources) | **GET** /lives/captureSources | Retrieve a list of capture sources
 *LivesApi* | [**getScenesByLiveId**](docs/Api/LivesApi.md#getscenesbyliveid) | **GET** /lives/{liveId}/scenes | List of the scenes in the live event
+*LivesApi* | [**startStopLiveById**](docs/Api/LivesApi.md#startstoplivebyid) | **PUT** /lives/{liveId}/{action} | Active a live
 *LivesApi* | [**updateLiveById**](docs/Api/LivesApi.md#updatelivebyid) | **PUT** /lives/{liveId} | Update details of a live event
 *LivesApi* | [**updateStateOfScene**](docs/Api/LivesApi.md#updatestateofscene) | **PUT** /lives/{liveId}/scenes/{sceneName}/{state} | Update the state of a scene based on its id
-*PlayerApi* | [**addPlayer**](docs/Api/PlayerApi.md#addplayer) | **POST** /players | Add a new player
-*PlayerApi* | [**deletePlayers**](docs/Api/PlayerApi.md#deleteplayers) | **DELETE** /players/{playerId} | delete players
-*PlayerApi* | [**getPlayers**](docs/Api/PlayerApi.md#getplayers) | **GET** /players | List players
-*PlayerApi* | [**updatePlayer**](docs/Api/PlayerApi.md#updateplayer) | **PUT** /players/{playerId} | Update player
-*PlayersApi* | [**uploadLogoPlayer**](docs/Api/PlayersApi.md#uploadlogoplayer) | **POST** /players/{playerId}/upload | Upload a logo to the player theme
 *PlaylistsApi* | [**addPlaylist**](docs/Api/PlaylistsApi.md#addplaylist) | **POST** /playlists | Add a new playlist
 *PlaylistsApi* | [**deletePlaylistById**](docs/Api/PlaylistsApi.md#deleteplaylistbyid) | **DELETE** /playlists/{playlistId} | Delete a playlist
 *PlaylistsApi* | [**getPlaylistById**](docs/Api/PlaylistsApi.md#getplaylistbyid) | **GET** /playlists/{playlistId} | Retun a single playlist
@@ -117,7 +113,6 @@ Class | Method | HTTP request | Description
 *VideosApi* | [**getAttachmentByVideoId**](docs/Api/VideosApi.md#getattachmentbyvideoid) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale} | Get the attachment
 *VideosApi* | [**getAttachmentFileByVideoId**](docs/Api/VideosApi.md#getattachmentfilebyvideoid) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file
 *VideosApi* | [**getAttachmentsByVideoId**](docs/Api/VideosApi.md#getattachmentsbyvideoid) | **GET** /videos/{videoId}/attachments | List of attachments
-*VideosApi* | [**getDetailToVideoById**](docs/Api/VideosApi.md#getdetailtovideobyid) | **GET** /videos/{videoId}/detail | Get the detail of metadatas
 *VideosApi* | [**getExportToVideoById**](docs/Api/VideosApi.md#getexporttovideobyid) | **GET** /videos/{videoId}/exports | Get the list exports of the video
 *VideosApi* | [**getExportUrlToVideoById**](docs/Api/VideosApi.md#getexporturltovideobyid) | **GET** /videos/{videoId}/exports/{format} | Get an url of the export of the video
 *VideosApi* | [**getVideoById**](docs/Api/VideosApi.md#getvideobyid) | **GET** /videos/{videoId} | Retun a single video
@@ -138,7 +133,6 @@ Class | Method | HTTP request | Description
 
 ## Models
 
-- [Attachment](docs/Model/Attachment.md)
 - [DataVideoAnalytic](docs/Model/DataVideoAnalytic.md)
 - [DataVideoAnalyticList](docs/Model/DataVideoAnalyticList.md)
 - [DataVideoUsage](docs/Model/DataVideoUsage.md)
@@ -154,21 +148,11 @@ Class | Method | HTTP request | Description
 - [LiveList](docs/Model/LiveList.md)
 - [LiveProperties](docs/Model/LiveProperties.md)
 - [LiveStatus](docs/Model/LiveStatus.md)
-- [MediaTracks](docs/Model/MediaTracks.md)
-- [OriginalFileInfos](docs/Model/OriginalFileInfos.md)
 - [Pagination](docs/Model/Pagination.md)
-- [Player](docs/Model/Player.md)
-- [PlayerConfig](docs/Model/PlayerConfig.md)
-- [PlayerConfigColors](docs/Model/PlayerConfigColors.md)
-- [PlayerConfigControls](docs/Model/PlayerConfigControls.md)
-- [PlayerConfigLogo](docs/Model/PlayerConfigLogo.md)
-- [PlayerList](docs/Model/PlayerList.md)
-- [PlayerProperties](docs/Model/PlayerProperties.md)
 - [Playlist](docs/Model/Playlist.md)
 - [PlaylistAssets](docs/Model/PlaylistAssets.md)
 - [PlaylistList](docs/Model/PlaylistList.md)
 - [PlaylistProperties](docs/Model/PlaylistProperties.md)
-- [QualityDownloadInfos](docs/Model/QualityDownloadInfos.md)
 - [Scene](docs/Model/Scene.md)
 - [Slate](docs/Model/Slate.md)
 - [TagList](docs/Model/TagList.md)
@@ -176,7 +160,6 @@ Class | Method | HTTP request | Description
 - [VideoAssets](docs/Model/VideoAssets.md)
 - [VideoAttachment](docs/Model/VideoAttachment.md)
 - [VideoAttachmentList](docs/Model/VideoAttachmentList.md)
-- [VideoDetail](docs/Model/VideoDetail.md)
 - [VideoList](docs/Model/VideoList.md)
 - [VideoMultipartUploadFinalize](docs/Model/VideoMultipartUploadFinalize.md)
 - [VideoMultipartUploadFinalizePartsInner](docs/Model/VideoMultipartUploadFinalizePartsInner.md)
@@ -217,6 +200,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.5`
-    - Package version: `1.7.6`
+- API version: `1.4`
+    - Package version: `1.7.7`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

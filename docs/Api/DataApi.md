@@ -16,7 +16,7 @@ getDataVideoAnalytics($limit, $offset, $start_date, $end_date): \Api42Vb\Client\
 
 List Video Analytics KPIs
 
-Retrieve key performance indicators (KPIs) for video analytics.
+API for retrieving key performance indicators (KPIs) related to video analytics.
 
 ### Example
 
@@ -84,7 +84,7 @@ getDataVideoUsage($limit, $offset, $interval, $start_date, $end_date): \Api42Vb\
 
 List Video Usage KPIs
 
-Retrieve platform resource usage statistics.  By default, returns monthly usage. The unit (daily, weekly, or monthly) can be specified. For the current period, usage is calculated up to the present moment. Optional filters include start and end dates.
+Return the usage of the platform ressources.  By default, it returns monthly usage but unit (dayly|week|month) can be defined. For current period, usage is calculated until current time. Start and end dates can be also optionaly defined to filter results.
 
 ### Example
 
