@@ -281,6 +281,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_AVAILABLE = 'AVAILABLE';
     public const STATUS_PROCESSING = 'PROCESSING';
     public const STATUS_ERROR = 'ERROR';
+    public const STATUS_CREATED = 'CREATED';
 
     /**
      * Gets allowable values of the enum
@@ -305,6 +306,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::STATUS_AVAILABLE,
             self::STATUS_PROCESSING,
             self::STATUS_ERROR,
+            self::STATUS_CREATED,
         ];
     }
 
