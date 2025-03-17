@@ -58,8 +58,8 @@ class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audio' => 'string[]',
-        'video' => 'string[]'
+        'audio' => 'object[]',
+        'video' => 'object[]'
     ];
 
     /**
@@ -300,7 +300,7 @@ class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets audio
      *
-     * @return string[]|null
+     * @return object[]|null
      */
     public function getAudio()
     {
@@ -310,7 +310,7 @@ class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets audio
      *
-     * @param string[]|null $audio audio
+     * @param object[]|null $audio audio
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets video
      *
-     * @return string[]|null
+     * @return object[]|null
      */
     public function getVideo()
     {
@@ -337,7 +337,7 @@ class MediaTracks implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets video
      *
-     * @param string[]|null $video video
+     * @param object[]|null $video video
      *
      * @return self
      */
